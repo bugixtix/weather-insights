@@ -1,0 +1,2 @@
+Text: The `style` prop expects a mapping from style properties to values, not a string. For example, style={{marginRight: spacing + 'em'}} when using JSX.
+Meaning: In Style tag you need to call the return-function instead of meantioning it: false = style{function}; right = style{function()}.  

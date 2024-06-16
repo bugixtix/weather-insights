@@ -10,7 +10,7 @@ export default function Navbar({screenWidth, pageStarts}){
         <div className="Nav" style={Nav(screenWidth)}>
             <div className="Nav__container1" style={Nav__container1(screenWidth)}>
                 <p className="Nav__text" style={Nav__text(screenWidth)}>
-                    Nav is here
+                    Weather-insights
                 </p>
             </div>
         </div>

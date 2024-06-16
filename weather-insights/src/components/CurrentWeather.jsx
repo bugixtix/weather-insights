@@ -11,11 +11,11 @@ export default function CurrentWeather({screenWidth}){
 
             <div className="CurrentWeather__box" style={CurrentWeather__box(screenWidth)}>
 
-            <div className="CurrentWeather__container1" style={CurrentWeather__container1(screenWidth)}>
                 <p className="CurrentWeather__label" style={CurrentWeather__label(screenWidth)}>
-                    temperature in london at 18:00 o'clock
+                    Leipzig
                 </p>
-            </div>
+            {/* <div className="CurrentWeather__container1" style={CurrentWeather__container1(screenWidth)}>
+            </div> */}
             <div className="CurrentWeather__container2" style={CurrentWeather__container2(screenWidth)}>
                 <div className="CurrentWeather__weatherIcon" style={CurrentWeather__weatherIcon(screenWidth)}>
                     <img className="CurrentWeather__weatherIconImg" src={sun_} style={CurrentWeather__weatherIconImg(screenWidth)}/>
@@ -30,10 +30,10 @@ export default function CurrentWeather({screenWidth}){
                 </div>
             </div>
 
-            <video autoPlay loop muted className="CurrentWeather__video" style={CurrentWeather__video(screenWidth)}>
+            {/* <video autoPlay loop muted className="CurrentWeather__video" style={CurrentWeather__video(screenWidth)}>
                 <source src={testVideo} type="video/mp4"/>
                 Your Browser doesn't support the video tag
-            </video>
+            </video> */}
 
             </div>
 

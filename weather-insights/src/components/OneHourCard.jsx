@@ -1,7 +1,7 @@
 import React from "react";
 import drop from '../images/drop_.svg'
 import cloud from '../images/sun-behind-large-cloud.svg'
-import { OneHourCard as OneHourCardStyle, OneHourCard__box, OneHourCard__hour, OneHourCard__hourText, OneHourCard__icon, OneHourCard__iconImg, OneHourCard__temperature, OneHourCard__temperatureText, OneHourCard__humidityIconAndPercentage, OneHourCard__humidityIconImg, OneHourCard__percentage,  } from "../styles/styles";
+import { OneHourCard as OneHourCardStyle, OneHourCard__box, OneHourCard__hour, OneHourCard__hourText, OneHourCard__icon, OneHourCard__iconImg, OneHourCard__temperature, OneHourCard__temperatureText, OneHourCard__humidityIconAndPercentage, OneHourCard__humidityIconImg, OneHourCard__humidityPercentage,  } from "../styles/styles";
 export default function OneHourCard({screenWidth}){
 
     return(
@@ -20,7 +20,7 @@ export default function OneHourCard({screenWidth}){
                 </div>
                 <div className="OneHourCard__humidityIconAndPercentage" style={OneHourCard__humidityIconAndPercentage(screenWidth)}>
                     <img className="OneHourCard__humidityIconImg" style={OneHourCard__humidityIconImg(screenWidth)}src={drop}/>
-                    <p className="OneHourCard__percentage" style={OneHourCard__percentage(screenWidth)}>15%</p>
+                    <p className="OneHourCard__percentage" style={OneHourCard__humidityPercentage(screenWidth)}>15%</p>
                 </div>
 
             </div>

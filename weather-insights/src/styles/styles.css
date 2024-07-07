@@ -1,0 +1,633 @@
+
+:root{
+    --primary-color:rgba(75,192,192,1);
+    --secondary-color:#2ecc71;
+    --dark-color:#000000;
+    --liDark-color:#999999;
+    --light-color:#ffffff;
+    --xLight-color:#dddddd;
+    --liLight-color:#ffffff;
+    --transparent:transparent;
+    --xSmall-font:0.9rem;
+    --small-font:1.2rem;
+    --medium-font:1.6rem;
+    --large-font:2rem;
+    --xlarge-font:2.5rem;
+    
+}
+
+@keyframes MoveSun {
+    0%{transform:  translateX(0rem) scale(1)}
+    12.5%{transform:  translateX(0.5rem) scale(1)}
+    25%{transform:  translateX(1rem) scale(1)}
+    37.5%{transform: translateX(0.5rem) scale(1);}
+    50%{transform: translateX(0rem) scale(1);}
+    62.5%{transform: translateX(-0.5rem) scale(1);}
+    75%{transform: translateX(-1rem) scale(1);}
+    87.5%{transform: translateX(-0.5rem) scale(1);}
+    100%{transform: translateX(0rem) scale(1);}
+}
+.Content__video{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    object-fit: cover;
+    opacity: 1;
+    z-index: -1;
+}
+
+.Nav{
+    display: flex; flex-direction: row;
+    width: 80%;
+    text-align: center;
+    position: relative;
+    padding: 0px 2rem;
+    transition: all ease 800ms;
+    margin: 0.5rem 0rem;
+    border-radius: 10rem;
+    border: 0.1rem solid var(--xLight-color);
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    background-color: var(--light-color);
+    
+}
+
+.Nav__container1{
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+}
+
+.Nav__text{
+    font-size: var(--xSmall-font);
+    /* color: var(--primary-color); */
+    padding: 0.5rem 0rem;
+    background:linear-gradient(90deg, blue, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position:relative;
+    text-shadow: 4px 2px 8px rgba(51, 51, 51, 0.2);
+
+}.Nav__text::before{
+    
+}
+
+.Footer{
+    display: flex; flex-direction: row; 
+    width: 80%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    border-radius: 10rem;
+    padding: 0rem 2rem;
+    margin: 0rem 0rem 1rem 0rem;
+    border: 0.1rem solid var(--xLight-color);
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    background-color: var(--light-color);
+}
+
+.Footer__container1{
+    display: flex; flex-direction: row; align-items: center; justify-content: flex-start;
+}
+.Footer__text{
+    font-size: var(--xSmall-font);
+    color: var(--secondary-color);
+    padding: 0.5rem 0rem;
+    cursor: pointer;
+    text-shadow: 4px 2px 8px rgba(51, 51, 51, 0.2);
+    background:linear-gradient(90deg, blue, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.Content{
+    width: 80%;
+    /*NOTE*/
+    display: flex; flex-wrap: wrap; justify-content: space-evenly; align-content: space-evenly; flex: 1;
+    position: relative;
+}
+.Content__container1{
+    width: 100%;
+    /* gap:1rem; */
+}
+.Content__text{
+    font-size: var(--medium-font);
+    color: var(--primary-color);
+    padding: 0.5rem 0rem;
+}
+.SearchBar{
+    width:100%;
+    /* height: 2rem; */
+    transition: all ease 400ms;
+    display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;
+    opacity: 1;
+    background-color: var(--transparent);
+    /* padding: 0rem 2rem 0rem 0rem; */
+    /* border: 0.1rem dotted var(--primary-color); */
+    border-radius: 1rem;
+    gap: 0.5rem;
+}
+.SearchBar__container1{
+    display: flex; flex-wrap: wrap; flex-direction: row; align-items: center;justify-content: center; flex-grow: 1;
+    width:auto;
+    position: relative;
+}
+.SearchBar__inputField{
+    display: flex;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    font-size: var(--xSmall-font);
+    outline: none;
+    transition: all ease 600ms;
+    padding: 0.4rem 2rem;
+    border-radius: 1rem;
+    /* margin: 0rem 0.5rem 0rem 0rem; */
+    background-color: var(--light-color);
+    border: 0.1rem solid var(--xLight-color);
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    color: var(--primary-color);
+    font-weight: 500;
+
+}
+.SearchBar__locationSVG{
+    width: 1rem;
+    position: absolute;
+    right: 1rem;
+    transition: all ease 600ms;
+}
+.SearchBar__inputField::placeholder{
+    color: var(--dark-color);
+    font-size: var(--xSmall-font);
+}.SearchBar__inputField:focus, .SearchBar__inputField:hover{
+    border: 0.1rem solid var(--primary-color);
+} .SearchBar__inputField:hover::placeholder, .SearchBar__inputField:focus::placeholder{
+    color: var(--primary-color);
+}
+
+.SearchBar__suggestionsUl{
+    position: absolute;
+    top: 2.6rem ;
+    background-color:var(--liLight-color);
+    width: 100%;
+    z-index: 2;
+    list-style-type: none;
+    /* height: 3rem; */
+    border-radius: 0.2rem;
+    display: flex; flex-direction: column;
+    padding: 0rem ; margin: 0rem;
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease 1000ms;
+}
+.showUl{
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+}
+.SearchBar__suggestionsLi{
+    width: 100%;
+    /* height: 1rem; */
+    display: flex; flex-direction: row;
+    justify-content: space-between;
+    padding: 0.3rem 2rem;
+    transition: all ease-in-out 1200ms;
+    cursor: pointer;
+    
+    border-top-right-radius: 0.2rem; border-top-left-radius: 0.2rem;
+    background: #dddddd;
+    background: linear-gradient(to left, #dddddd99 50%,var(--liLight-color)50%) right ;
+    background-size: 200%;
+    /* background-position: 100%; */
+    border-bottom: 1px solid var(--liLight-color);
+    backdrop-filter: blur(2px);
+
+}.SearchBar__suggestionsLi:last-child{
+    border-bottom: none;
+    border-radius: 0;
+    border-bottom-right-radius: 0.2rem; border-bottom-left-radius: 0.2rem;
+}
+.SearchBar__suggestionsLi:hover{
+    background-position: left;
+}
+.SearchBar__liCity{
+    font-size: var(--xSmall-font);
+    color: var(--primary-color);
+    /* font-weight: bold; */
+}
+.SearchBar__liContainer{
+    display: flex; flex-direction: row;
+    padding:0rem 0.4rem 0rem 0rem;
+}
+.SearchBar__state{
+    font-size: var(--xSmall-font);
+    color: var(--liDark-color);
+}
+.SearchBar__country{
+    font-size: var(--xSmall-font);
+    color: var(--liDark-color);
+}
+
+.SearchBar__searchButton{
+    /* flex: 1; */
+    
+    padding: 0.5rem 0.8rem 0.3rem 0.8rem;
+    /* margin: 0rem 0.5rem 0rem 0rem; */
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: var(--light-color);
+    font-size: var(--xSmall-font);
+    font-weight: 200;
+    color: var(--dark-color);
+    transition:all ease 1s;
+    border: 0.1rem solid var(--xLight-color);
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    background: linear-gradient(to left, #dddddd99 50%,var(--primary-color)50%) right ;
+    background-size: 200%;
+}.SearchBar__searchButton:hover, .SearchBar__searchButton:focus{
+    /* border:double dashed ridge outses; */
+    border: 0.1rem solid var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background-position: left;
+    /* transform: scale(1.1); */
+    color: var(--light-color);
+}
+.SearchBar__container2{
+    display: flex; flex-direction: row; align-items: center;
+    /* width: auto; */
+    gap:0.5rem;
+}
+.SearchBar__locationButton{
+    padding: 0.5rem 1rem 0.3rem 1rem;
+    margin: 0rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: var(--light-color);
+    font-size: var(--xSmall-font);
+    font-weight: 400;
+    color: var(--dark-color);
+    border: 0.1rem solid var(--xLight-color);
+    transition: all ease 1100ms;
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #dddddd99 50%,var(--primary-color)50%) left ;
+    background-size: 200%;
+    display: flex; flex-direction: row ; justify-content: center; align-items: center;
+    gap:0.2rem;
+}.SearchBar__locationButton:hover, .SearchBar__locationButton:focus{
+    border: 0.1rem solid var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background-position: right;
+    /* transform: scale(1.1); */
+    color: var(--light-color);
+}
+.SearchBar__currentLocationSVG{
+    width: 1rem;
+    position: absolute; 
+    right: 1rem;
+}
+.CurrentWeather{
+    display: flex; flex-direction: row; justify-content: space-evenly;
+    
+    background-color: var(--transparent);
+    margin: 0.6rem 0rem;
+    gap:0.5rem;
+}
+.HourlyWeatherChart{
+    /* width: 50%; */
+    flex: 1;
+    height: auto;
+    /* margin: 0 0.2rem; */
+    padding: 1rem;
+    border: 0.1rem solid var(--xLight-color);
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    border-radius: 0.4rem;
+    background-color: var(--light-color);
+    
+}
+.CurrentWeather__boxWrapper{
+    /* width: 100%; */
+    border-radius: 0.4rem;
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    background-color: var(--light-color);
+    flex: 1;
+    /* margin: 0rem 0.2rem; */
+    padding: 1rem;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border: 0.1rem solid var(--xLight-color);
+    transition: all ease 800ms;
+    min-height: 5em;
+}
+.CurrentWeather__box{
+    /* border: 0.1rem dashed var(--dark-color); */
+    position: relative;
+    background-color: transparent;
+    /* width: 10rem; */
+    display: flex; flex-direction: column;justify-content: center; align-items:center; flex-wrap:wrap;
+    padding: 0.8rem 0rem 0rem 0rem;
+    border-radius: 1rem;
+    transition:all ease 600ms;
+    height: 100%;
+    width: 100%;
+    
+}.CurrentWeather__boxWrapper:hover{
+    /* transform:scale(1); */
+    /* border:0.1rem dotted var(--primary-color); */
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+.CurrentWeather__box:hover .CurrentWeather__temperature, .CurrentWeather__box:hover .CurrentWeather__description{
+    transition: all ease 600ms;
+    /* opacity:0; */
+}.CurrentWeather__box:hover .CurrentWeather__weatherIconImg{
+    
+    /* animation: MoveSun 3000ms linear 0s infinite; */
+    
+}
+
+.CurrentWeather__container1{
+    /* width: 100%; */
+    display: flex; flex-wrap: wrap; align-items: center;
+}
+.CurrentWeather__date{
+    font-size:var(--xSmall-font);
+    font-weight: bold;
+    color: var(--liDark-color);
+    position: absolute;
+    top: 0px;
+}
+.CurrentWeather__label{
+    font-size: var(--medium-font);
+    font-weight: 500;
+    padding: 0.2rem 1rem;
+    position: absolute;
+    top:1.2rem;
+}
+.CurrentWeather__container2{
+    display:flex; flex-direction:column; flex-wrap:nowrap; 
+    padding: 0.1rem 0rem;
+    position: absolute;
+    bottom: -0.5rem;
+    width: 100%;
+}
+.CurrentWeather__weatherIcon{
+    display: flex ; flex-direction: row ; justify-content: center; align-items: center;
+}
+.CurrentWeather__weatherIconImg{
+    
+    font-size:var(--medium-font);
+    width: 8rem;
+}
+.CurrentWeather__temperatureAndDescription{
+    display:flex; flex-direction:column; flex-wrap:nowrap; justify-content:center; align-content:flex-start;
+    align-items: center;
+    padding:0px 0.4rem;
+    gap:0.2rem;
+    width: 100%;
+}
+.CurrentWeather__temperature{
+    font-size: var(--small-font);
+    font-weight: 500;
+}
+.CurrentWeather__description{
+    font-size: var(--small-font);
+    font-weight:400;
+    width: 100%;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    position: relative;
+}
+.description__tooltip{
+    position: absolute;
+    border-radius: 0.2em;
+    background-color: var(--dark-color);
+    color: var(--liLight-color);
+    font-size: 0.8rem;
+    bottom: 0rem;
+    left:0;
+    transition: all ease 600ms;
+    max-width: fit-content;
+    /* width: auto; */
+    /* min-height: auto; */
+    display: inline;
+    text-align: center;
+    z-index: 5;
+    /* transform: scale(0); */
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+
+    white-space: normal;
+}
+.CurrentWeather__description:hover  .description__tooltip{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+.HourlyWeather{
+    display:none; flex-direction:row; align-items:center; justify-content:center;
+    padding: 0.5rem 0rem ;
+    background-color: var(--transparent);
+    position:relative;
+}
+.HourlyWeather__torightButton{
+    background-color:var(--transparent);
+    color: var(--primary-color);
+    border:none;
+    border-radius: 100%;
+    padding: 0.2rem 0.2rem;
+    display: flex;
+    font-size:var(--medium-font);
+    cursor:pointer;
+    margin:0rem 0.4rem;
+    transition: all ease 400ms;
+    position:absolute;
+    right:1rem;
+}
+.HourlyWeather__toleftButton{
+    background-color: var(--transparent);
+    color: var(--primary-color);
+    border: none;
+    border-radius:100%;
+    padding: 0.2rem ;
+    display:flex;
+    cursor: pointer;
+    font-size: var(--medium-font);
+    margin: 0rem 0.4rem;
+    transition: all ease 400ms;
+    position:absolute;
+    left:1rem;
+}
+.HourlyWeather__box{
+    width: 100%;
+    background-color:var(--transparent);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; 
+    padding: 0rem;
+}
+.HourlyWeather__container1{
+    width: 100%;
+    display:flex; flex-direction:row; flex-wrap:nowrap; align-items:center; justify-content:flex-start;
+    padding:0.2rem 0.4rem;
+    margin: 0rem 0rem 0.4rem 0rem;
+    border-left: 0.3rem solid var(--xLight-color);
+}
+.HourlyWeather__label{
+    font-size: var(--phone-small-font);
+    font-weight: 500;
+    background:linear-gradient(100deg, blue, red, blue, red, blue,red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 4px 2px 8px rgba(51, 51, 51, 0.2);
+}
+.HourlyWeather__container2{
+    width:100%;
+    display:flex; flex-direction:row; 
+    overflow-x:scroll;
+}
+
+.OneHourCard{
+    padding:0.4rem 0rem 0rem 0rem;
+    margin:0.2rem;
+    /* border: 1px solid black; */
+    border-radius: 0.3rem;
+}
+.OneHourCard__box{
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-start; 
+    border-radius: 0.2rem;
+    position: relative;
+}
+.OneHourCard__hour{
+    /* padding:0.2rem 0.4rem; */
+    position: absolute;
+    top: 0rem;
+}
+.OneHourCard__hourText{
+    font-size: var(--phone-small-font);
+    font-weight:bold;
+}
+.OneHourCard__icon{
+    padding:0.2rem;
+    display:flex; flex-direction:column;
+}
+.OneHourCard__iconImg{
+    width:4rem;
+    padding: 0.4rem 0rem 0rem 0rem;
+}
+.OneHourCard__temperature{
+    padding:0.2rem;
+    position: absolute;
+    bottom: 0rem;
+    text-align: center;
+}
+.OneHourCard__temperatureText{
+    font-size: var(--phone-medium-font);
+    font-weight:bold;
+}
+.OneHourCard__humidityIconAndPercentage{
+    display:flex; flex-direction:row; align-items:center;
+    padding:0.2rem;
+}
+.OneHourCard__humidityIconImg{
+    width: 1.5rem;
+}
+.OneHourCard__humidityPercentage{
+    font-size: var(--small-font);
+    font-weight:400;
+}
+.WeatherForecast{
+    width:100%;
+    display:flex; flex-direction:column; background-color: var(--transparent);
+    padding: 0rem 0rem 0.5rem 0rem;
+
+}
+.WeatherForecast__box{
+
+}
+.WeatherForecast__container1{
+    border-left: 0.3rem solid var(--xLight-color);
+    margin: 0rem 0.4rem 0.4rem 0.4rem;
+    padding: 0rem 0.2rem;
+}
+.WeatherForecast__label{
+    position: relative;
+    padding: 0.2rem 0.2rem;
+    /* font-size: var(--xSmall-font); */
+    font-weight: 500;
+    background:linear-gradient(100deg, blue, red, blue, red, blue,red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* font-size: 5rem; */
+}
+.WeatherForecast__label::before{
+    content: 'Gradient Text Shadow';
+    position: absolute;
+    bottom:0;
+    left:0;
+    z-index:-1;
+    filter:blur(4px);
+    opacity: 0.35;
+    color: transparent;
+    background:#999999;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+.WeatherForecast__container2{
+    width:100%;
+    display:flex; flex-direction: row;
+    overflow-x: unset;
+}
+
+.OneDayForecast{
+    display:flex;
+    width:100%;
+    background-color: var(--transparent);
+    cursor: pointer;
+    transition:all ease 400ms;
+}
+.OneDayForecast:hover{
+    scale: 1.04;
+}
+.OneDayForecast__box{
+    width: 100%;
+    display:flex; flex-direction:column; justify-content:center; align-items: center;
+    margin: 0rem 0.2rem;
+    border-radius: 0.4rem;
+    padding: 0.4rem 0rem;
+    border: 0.1rem solid var(--xLight-color);
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    background-color: var(--light-color);
+    position: relative;
+    min-width: 5rem;
+}
+.OneDayForecast__img{
+    margin: 0rem;
+    padding:0rem;
+    display: flex; flex-direction: column ; align-items: center ;justify-content:center;
+}
+.OneDayForecast__day{
+    font-size: var(--xSmall-font);
+    font-weight:400;
+    position: absolute;
+    top: 0.2rem;
+}
+.OneDayForecast__temperatureContainer{
+    display: flex; flex-direction: row ; justify-content: center ; align-items: center ;
+    position: absolute;
+    bottom: 0.2rem;
+    font-size: var(--xSmall-font);
+}
+.OneDayForecast__temperatureIcon{
+    font-size: var(--large-font);
+    padding: 0.1rem;
+}
+.OneDayForecast__highestTemperature{
+    font-size:var(--xSmall-font);
+    font-weight:500;
+    color: var(--secondary-color);
+}
+.OneDayForecast__lowestTemperature{
+    font-size:var(--xSmall-font);
+    font-weight:500;
+    color:var(--primary-color);
+}

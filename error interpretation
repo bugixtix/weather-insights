@@ -3,3 +3,49 @@ Meaning: In Style tag you need to call the return-function instead of meantionin
 
 
 change responsivity on width greater than 1440 and height greater than 1000
+
+-- get the other api and put the inputed text inside it to get coordinates, if it returns false, use the alerady choosen method (first item of the list out of autocomplete list).
+
+
+--to do: 25.04.2024
+-- organize and style current weahter section (add date paragraph, change font size, check day or night, change svg accordingly,)
+-- style search bar: blur/hide after search.
+
+-- 
+0 - a_1_sunny
+1 - a_2_little_sunny
+2 - b_1_partly_cloudy
+a_4_night
+b_4_cloudy_night
+3 - b_2_cloudy
+4-14-15-16 - b_3_very_cloudy
+5-6-7-8-11-12 - d_4_fog
+9 g_1_stormy
+13 c_4_lightning
+17 c_3_thunderstorm
+18 f_3_windy
+f_4_very_windy
+g_1_stormy
+g_2_very_stormy
+
+
+Sunny: 0
+Little sunny:
+Very sunny: 1
+Clear night sky: 0 (wenn Nacht)
+Partly cloudy: 2
+Cloudy: 4, 5, 6, 7, 8, 14, 15, 16, 19
+Very cloudy: 3
+Cloudy night: 2, 3 (wenn Nacht)
+Rainy: 21,24, 25,50,51,52,60, 61, 63, 65,68, 80, 81,83,90,91
+Heavy rain: 53, 54, 55, 56,57,58,59, 62, 64, 66, 67,69, 82,93
+Thunderstorm: 17, 29, 92
+Lightning: 13
+Snow: 20, 22, 70, 71,72, 73, 75, 85, 86,94
+Heavy snow: 26,36,37,38,39, 27, 74,76,95
+Sleet: 23, 77,78, 79, 83, 84,87,88,89
+Fog: 10, 11, 12, 28,40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+Windy: 18, 32
+Very windy: 33, 34, 35
+Stormy: 9,30,31, 96,97, 98
+Very stormy:  29, 99

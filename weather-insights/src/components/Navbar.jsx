@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import '../styles/styles.css'
 import {Nav, Nav__container1, Nav__text} from '../styles/styles.js'
 export default function Navbar({screenWidth, pageStarts}){
 
@@ -7,9 +7,9 @@ export default function Navbar({screenWidth, pageStarts}){
     useEffect(()=>{
     },[])
     return(
-        <div className="Nav" style={Nav(screenWidth)}>
-            <div className="Nav__container1" style={Nav__container1(screenWidth)}>
-                <p className="Nav__text" style={Nav__text(screenWidth)}>
+        <div className="Nav" >
+            <div className="Nav__container1" >
+                <p className="Nav__text">
                     Weather-insights
                 </p>
             </div>

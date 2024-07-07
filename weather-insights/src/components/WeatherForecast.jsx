@@ -6,23 +6,19 @@ import { OneDayForecast } from "./OneDayForecast";
 
 export default function WeatherForecast({screenWidth}){
 
+    var dayLong = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wedenesday', 'Thursday','Friday']
+    var dayShort = ['Sat', 'Sun', 'Mon','Tue', 'Wed','Thu', 'Fri']
 
     return(
-        <div className="WeatherForecast" style={WeatherForecastStyle(screenWidth)}>
-            <div className="WeatherForecast__box" style={WeatherForecast__box(screenWidth)}>
+        <div className="WeatherForecast">
+            <div className="WeatherForecast__box">
 
-                <div className="WeatherForecast__container1" style={WeatherForecast__container1(screenWidth)}>
-                    <p className="WeatherForecast__label" style={WeatherForecast__label(screenWidth)}> Seven Days Forecast</p>
+                <div className="WeatherForecast__container1" >
+                    <p className="WeatherForecast__label"> Seven Days Forecast</p>
                 </div>
 
-                <div className="WeatherForecast__container2" style={WeatherForecast__container2(screenWidth)}>
-                    <OneDayForecast screenWidth={screenWidth} index={1}/>
-                    <OneDayForecast screenWidth={screenWidth} index={2}/>
-                    <OneDayForecast screenWidth={screenWidth} index={3}/>
-                    <OneDayForecast screenWidth={screenWidth} index={4}/>
-                    <OneDayForecast screenWidth={screenWidth} index={5}/>
-                    <OneDayForecast screenWidth={screenWidth} index={6}/>
-                    <OneDayForecast screenWidth={screenWidth} index={7}/>
+                <div className="WeatherForecast__container2">
+                    {window.innerWidth > 1024 ? dayLong.map((oneDay,index) => (<OneDayForecast index={index} key={index} day={oneDay}/> )) : dayShort.map((oneDay, index)=>(<OneDayForecast index={index} key={index} day={oneDay}/>))}
                 </div>
 
             </div>

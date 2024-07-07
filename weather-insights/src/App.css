@@ -3,23 +3,13 @@
   box-sizing: border-box;
   margin: 0;
 }
-.CurrentWeather::before{
-  content: "";
-  position: absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index: 0;
-  /* background-color: #ffffff55 !important; */
-  backdrop-filter: blur(5px) !important;
-}
 body{
   margin: 0;
   padding: 0;
   background-color: aliceblue;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  touch-action: manipulation;
 }
 
 .App{
@@ -27,10 +17,12 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: space-between; 
+  justify-content: space-between;
   
   /* padding: 0 20px 20px 20px; */
-  height: 100%;
-  width: 100%;
+  min-height: 100vh !important;
+  min-width: 100vw !important;
   animation: fade 800ms 500ms linear forwards;
 }
 @keyframes fade {

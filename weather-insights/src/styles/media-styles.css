@@ -1,0 +1,224 @@
+
+:root{
+    --phone-xSmall-font:9px;
+    --phone-small-font:12px;
+    --phone-medium-font:14px;
+    --phone-large-font:18px;
+    --phone-xLarge-font:22px;
+
+    --tablet-xSmall-font:11px;
+    --tablet-small-font:14px;
+    --tablet-medium-font:18px;
+    --tablet-large-font:22px;
+    --tablet-xLarge-font:26px;
+
+}
+@media (max-width:600px){
+    .Nav__text, .Footer__text{
+        font-size: var(--phone-medium-font) !important;
+        font-weight: bold !important;
+        padding: 0.2rem 0rem;
+    }
+    .SearchBar__container2{
+        display: flex;
+        flex-direction: column !important;
+        width: 100%;
+        justify-content: center; align-items: center;
+    }
+    .SearchBar__inputField, .SearchBar__inputField::placeholder{
+        font-size: var(--phone-small-font) !important;
+        font-weight: bold !important;
+    }
+    .SearchBar__locationButton, .SearchBar__searchButton{
+        width: 100%; 
+        font-size: var(--phone-small-font) !important;
+        font-weight: bold !important;
+    }
+    .CurrentWeather{flex-direction:column !important;}
+    .CurrentWeather__label{
+        font-size: var(--phone-xLarge-font) !important;
+        font-weight: bold !important;
+    }
+    .CurrentWeather__description, .CurrentWeather__temperature{
+        font-size: var(--phone-large-font) !important;
+        font-weight: bold !important;
+    }
+    .CurrentWeather__weatherIconImg{
+        width: 6rem !important;
+        padding: 0.5rem 0rem !important;
+    }
+    .WeatherForecast__label{
+        font-size: var(--phone-small-font) !important;
+        font-weight: bold !important;
+    }
+    .WeatherForecast__container2{
+        overflow-x: scroll !important;
+    }
+    .OneDayForecast__day,.OneDayForecast__highestTemperature,.OneDayForecast__lowestTemperature{
+        font-size: var(--phone-small-font) !important;
+        font-weight: bold !important;
+    }
+
+    .HourlyWeatherChart{
+        display: none !important;
+    }
+    .HourlyWeather{
+        display: flex !important;
+    }
+    .SearchBar__suggestionsUl{
+        top: 6.5rem !important;
+    }
+    .SearchBar__liCity, .SearchBar__state, .SearchBar__country{
+        font-size: var(--phone-small-font) !important;
+    }
+}
+
+@media (min-width:601px) and (max-width:768px){
+    
+    .Nav__text,.Footer__text{
+        font-weight: bold !important;
+        font-size: var(--tablet-small-font) !important;
+        padding: 0.3rem 0rem !important;
+    }
+
+    .SearchBar__container2{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center; align-items: center;
+    }
+    .SearchBar__inputField{
+        padding:0.2rem 2rem !important; 
+        font-size: var(--tablet-small-font) !important;
+        font-weight: bold !important;
+    }
+    .SearchBar__inputField::placeholder{
+        font-size: var(--tablet-small-font) !important;
+        font-weight: bold !important;
+    }
+    .SearchBar__locationButton{
+        flex:1;
+        padding: 0.2rem 0rem !important;
+        font-size: var(--tablet-small-font) !important;
+        font-weight:bold!important;
+    }
+    .SearchBar__searchButton{
+        flex:1;
+        padding: 0.2rem 0rem !important;
+        font-size: var(--tablet-small-font) !important;
+        font-weight:bold!important;
+    }
+    .CurrentWeather{flex-direction:column !important;}
+    .CurrentWeather__boxWrapper{
+        padding: 0.4rem 0rem !important;
+        min-height:9rem !important;
+    }
+    .CurrentWeather__label{
+        font-size: var(--tablet-large-font) !important;
+        font-weight: bold !important;
+    }
+    .CurrentWeather__temperature, .CurrentWeather__description{
+        font-size: var(--tablet-medium-font) !important;
+        font-weight: bold !important;
+    }
+    .CurrentWeather__weatherIconImg{
+        width: 6rem !important;
+        padding: 0.4rem 0rem !important ;
+    }
+    .WeatherForecast__label{
+        font-size: var(--phone-medium-font) !important;
+    }
+    .WeatherForecast__container2{
+        overflow-x: scroll !important;
+    }
+    .OneDayForecast__day, .OneDayForecast__highestTemperature, .OneDayForecast__lowestTemperature{
+        font-size: var(--tablet-small-font) !important;
+        font-weight: bold !important;
+    }
+    .SearchBar__suggestionsUl{
+        top: 3.6rem !important;
+    }
+    .SearchBar__liCity, .SearchBar__state, .SearchBar__country{
+        font-size: var(--tablet-small-font) !important;
+    }
+}
+
+@media (min-width:769px) and (max-width:1024px){
+    .Nav__text, .Footer__text{
+        padding: 0.3rem 0rem !important;
+        font-size: var(--tablet-medium-font) !important;
+        font-weight: bold !important;
+    }
+    .SearchBar__container1{}
+    .SearchBar__container2{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center; align-items: center;
+    }
+    .SearchBar__inputField{
+        padding: 0.2rem 2rem !important;
+        font-size: var(--tablet-medium-font) !important;
+        font-weight: bold !important;
+    }
+    .SearchBar__locationSVG{
+        width: 1rem !important;
+    }
+    .SearchBar__locationButton{
+        flex:1;
+        padding: 0.2rem 1rem !important;
+        font-size: var(--tablet-medium-font) !important;
+        font-weight: bold !important;
+    }
+    .SearchBar__searchButton{
+        flex:1;
+        padding: 0.2rem 1rem !important;
+        font-size: var(--tablet-medium-font) !important;
+        font-weight: bold !important;
+    }
+    .CurrentWeather__boxWrapper{
+        padding: 0.5rem 0rem 0rem 0rem !important;
+        min-height: 11rem !important;
+    }
+    .CurrentWeather__label{
+        font-size: var(--tablet-large-font) !important;
+        font-weight: bold !important;
+    }
+    .CurrentWeather__temperature, .CurrentWeather__description{
+        font-size: var(--tablet-medium-font) !important;
+    }
+    
+
+    .CurrentWeather{flex-direction:column !important;}
+    .OneDayForecast__box{width: 5rem !important;}
+    .WeatherForecast__label{
+        font-size: var(--tablet-medium-font) !important;
+    }
+    .WeatherForecast__container2{
+        overflow-x: scroll !important;
+    }
+    
+    .OneDayForecast__day, .OneDayForecast__highestTemperature, .OneDayForecast__lowestTemperature{
+        font-size: var(--tablet-small-font) !important;
+        font-weight: bold !important;
+    }
+    .SearchBar__suggestionsUl{
+        top: 4rem !important;
+    }
+    .SearchBar__liCity, .SearchBar__state, .SearchBar__country{
+        font-size: var(--tablet-small-font) !important;
+    }
+}
+@media (min-width:1025px) {
+    .SearchBar__locationSVG{
+        width: 1.5rem !important;
+    }
+    .SearchBar__inputField:hover + .SearchBar__locationSVG{
+        transition: all ease 1000ms;
+        transform: translateY(-1.6rem) ;
+    }
+    .SearchBar__currentLocationSVG{
+        position: relative !important; 
+        right: unset !important;
+    }
+}

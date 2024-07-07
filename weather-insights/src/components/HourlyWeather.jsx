@@ -8,7 +8,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { FiArrowLeft } from "react-icons/fi";
 
 
-export default function HourlyWeather({screenWidth}){
+export default function HourlyWeather({screenWidth,cloud}){
     var data = [{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]
 
     var scrollContainerRef = useRef(null)
@@ -26,20 +26,20 @@ export default function HourlyWeather({screenWidth}){
           }      
     }
     return(
-        <div className="HourlyWeather" style={HourlyWeatherStyle(screenWidth)}>
-            <button className="HourlyWeather_toleftButton" style={HourlyWeather__toleftButton(screenWidth,hoverLeftButton)} onMouseEnter={()=>hoverLeftButton$(true)} onMouseLeave={()=>hoverLeftButton$(false)} onClick={scrollLeft}> <FiArrowLeft/> </button>
-            <div className="HourlyWeather__box" style={HourlyWeather__box(screenWidth)}>
-                <div className="HourlyWeather__container1" style={HourlyWeather__container1(screenWidth)}>
-                    <p className="HourlyWeather__label" style={HourlyWeather__label(screenWidth)}> Hourly Weather</p>
+        <div className="HourlyWeather">
+            {/* <button className="HourlyWeather_toleftButton" onMouseEnter={()=>hoverLeftButton$(true)} onMouseLeave={()=>hoverLeftButton$(false)} onClick={scrollLeft}> <FiArrowLeft/> </button> */}
+            <div className="HourlyWeather__box">
+                <div className="HourlyWeather__container1" >
+                    <p className="HourlyWeather__label"> Hourly Weather</p>
                 </div>
-                <div className="HourlyWeather__container2" style={HourlyWeather__container2(screenWidth)} ref={scrollContainerRef}>
+                <div className="HourlyWeather__container2" ref={scrollContainerRef}>
                     {
-                        data.map(i=><OneHourCard key={Math.random()} screenWidth={screenWidth}/>)
+                        data.map(i=><OneHourCard key={Math.random()} screenWidth={screenWidth} cloud={cloud}/>)
                     }
                 </div>
 
             </div>
-            <button className="HourlyWeather__torightButton" style={HourlyWeather__torightButton(screenWidth, hoverRightButton)} onMouseEnter={()=>hoverRightButton$(true)} onMouseLeave={()=>hoverRightButton$(false)} onClick={scrollRight}><FiArrowRight/></button>
+            {/* <button className="HourlyWeather__torightButton" onMouseEnter={()=>hoverRightButton$(true)} onMouseLeave={()=>hoverRightButton$(false)} onClick={scrollRight}><FiArrowRight/></button> */}
         </div>
     )
 }

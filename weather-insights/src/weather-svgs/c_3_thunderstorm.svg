@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Keyshape -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 64 64" style="white-space: pre;">
+    <g transform="translate(32,27.8455) translate(-20.4509,-16)">
+        <path id="_a0" fill="#99a3aa" d="M32.1,14.2C32.1,14.2,32,14.2,32,14.2C31.1,6.2,24.3,0,16,0C7.2,0,0,7.2,0,16C0,24.8,7.2,32,16,32L32,32C36.9,32,40.9,28,40.9,23.1C41,18.2,37,14.2,32.1,14.2Z" transform="translate(20.4509,16) translate(0,0) translate(-20.4509,-16)"/>
+    </g>
+    <g transform="translate(23.1692,50.8367) translate(-0.730772,-1.51026)">
+        <path id="_a1" fill="none" stroke="#51F4EB" stroke-width="3.6559" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.3,1.8L3.3,1.8" opacity="0" transform="translate(-1.83846,-1.8)"/>
+    </g>
+    <g transform="translate(33.3808,50.8367) translate(-0.730772,-1.51026)">
+        <path id="_a2" fill="none" stroke="#51F4EB" stroke-width="3.6559" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.3,1.8L3.3,1.8" opacity="0" transform="translate(-1.83846,-1.8)"/>
+    </g>
+    <path id="_a3" fill="#FFCE55" d="M23.1433,38.6724L31.1164,28.4L31.1164,33.5547L35.7149,33.5547L27.7418,43.8271L27.7418,38.6724Z" opacity="1" transform="translate(15.5991,16.8129)"/>
+   </svg>

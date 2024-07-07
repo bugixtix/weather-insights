@@ -81,9 +81,10 @@ export const Content = (screenWidth)=>{
         width:'100%',
         display:'flex',
         flexWrap:'wrap',
+        justifyContent:'space-evenly',
+        alignContent:'space-evenly',
         flex:'1',
         position:'relative',
-        
     }
 }
 export const Content__container1 = (screenWidth)=>{
@@ -99,13 +100,14 @@ export const Content__text = (screenWidth)=>{
     }
 }
 
-export const SearchBar = (screenWidth)=>{
+export const SearchBar = (screenWidth, isLocation)=>{
     return{
+        transition:'all ease 400ms',
         width:'100%',
         height: screenWidth > 1000 ? '50px' : 'auto',
         display:'flex',
         flexDirection:  screenWidth > 1000 ? 'row' : screenWidth > 450 && screenWidth <= 1000 ? 'column' : 'column',
-        
+        opacity: isLocation ? 0 : 1,
         alignItems:'center',
         
         backgroundColor:color,
@@ -136,7 +138,8 @@ export const SearchBar__inputField = (screenWidth,focus)=>{
         outline:'none',
         transition:'all ease 600ms',
         padding:'7px 4px',
-        margin:screenWidth >1000 ? '0px 20px 0px 0px' : '0px 8px 0px 0px'
+        margin:screenWidth >1000 ? '0px 20px 0px 0px' : '0px 8px 0px 0px',
+        backgroundColor:color,
     }
 }
 export const SearchBar__searchButton = (screenWidth, hover)=>{
@@ -146,7 +149,7 @@ export const SearchBar__searchButton = (screenWidth, hover)=>{
         margin:screenWidth > 1000 ? '0px 20px 0px 0px' : screenWidth > 450 && screenWidth <= 1000 ? '4px 0px' :' 4px 0px',
         cursor:'pointer',
         borderRadius:'2px',
-        backgroundColor:hover?'#dddddd':'#ffffff',
+        backgroundColor:hover?'#ffffff55' : color,
         fontSize:'14px',
         fontFamily:'Segoe UI',
         fontWeight:'400',
@@ -172,7 +175,7 @@ export const SearchBar__locationButton = (screenWidth, hover)=>{
         margin:screenWidth > 1000 ? '0px 0px 0px 0px' : screenWidth > 450 && screenWidth <= 1000 ? '4px 0px' :' 4px 0px',
         cursor:'pointer',
         borderRadius:'2px',
-        backgroundColor:hover?'#dddddd' : '#ffffff',
+        backgroundColor:hover?'#ffffff55' :color ,
         fontSize:'14px',
         fontFamily:'Segoe UI',
         fontWeight:'400',
@@ -241,7 +244,7 @@ export const CurrentWeather__container1 = (screenWidth) =>{
 export const CurrentWeather__label = (screenWidth) =>{
 
     return{
-        fontSize:'26px',
+        fontSize:'32px',
         fontWeight:'500', 
         padding:screenWidth>1000? '4px 20px' : screenWidth>450 && screenWidth<=1000 ? '4px 8px' : '4px 8px',
         fontFamily:'Segoe UI',
@@ -285,7 +288,7 @@ export const CurrentWeather__temperature = (screenWidth) =>{
 
     return{
       fontFamily:'Segoe UI',
-      fontSize:'20px',
+      fontSize:'24px',
       fontWeight:'500',   
     }
 }
@@ -293,7 +296,7 @@ export const CurrentWeather__description = (screenWidth) =>{
 
     return{
         fontFamily:'Segoe UI',
-        fontSize:'18px',
+        fontSize:'22px',
         fontWeight:'400',
     }
 }
@@ -309,7 +312,7 @@ export const HourlyWeather = (screenWidth) =>{
         justifyContent:'center',
         padding:screenWidth > 1000 ? '10px 80px' : screenWidth > 450 && screenWidth <= 1000 ? '10px 40px' : '4px 8px',
         backgroundColor:color,
-
+        
         position:'relative',
     }
 }
@@ -359,7 +362,7 @@ export const HourlyWeather__box = (screenWidth)=>{
         flexDirection:'column',
         alignItems:'center',
         justifyContent:'center',
-        padding :screenWidth > 1000 ? '0px' : screenWidth > 450 && screenWidth <= 1000 ? '0px' : '0px 20px'
+        padding :screenWidth > 1000 ? '0px' : screenWidth > 450 && screenWidth <= 1000 ? '0px' : '0px 4px'
     }
 }
 
@@ -396,8 +399,9 @@ export const HourlyWeather__container2 = (screenWidth)=>{
 export const OneHourCard = (screenWidth) =>{
 
     return{
-        padding:'4px',
+        padding:'8px',
         margin : '4px',
+        // zIndex:'2',
     }
 }
 export const OneHourCard__box = (screenWidth) =>{
@@ -408,19 +412,20 @@ export const OneHourCard__box = (screenWidth) =>{
         alignItems:'center',
         justifyContent:'flex-start',
         //
-        border:'1px solid black'
+        border:'1px solid black',
+        borderRadius:'4px',
     }
 }
 export const OneHourCard__hour = (screenWidth) =>{
 
     return{
-        padding:'4px',
+        padding:'4px 8px',
     }
 }
 export const OneHourCard__hourText = (screenWidth) =>{
 
     return{
-        fontSize:'16px',
+        fontSize:'20px',
         fontFamily:'Segoe UI',
         fontWeight:'400',
     }
@@ -435,7 +440,7 @@ export const OneHourCard__icon = (screenWidth) =>{
 export const OneHourCard__iconImg = (screenWidth) =>{
 
     return{
-        width:'60px',
+        width:'80px',
     }
 }
 export const OneHourCard__temperature = (screenWidth) =>{
@@ -447,7 +452,7 @@ export const OneHourCard__temperature = (screenWidth) =>{
 export const OneHourCard__temperatureText = (screenWidth) =>{
 
     return{
-        fontSize:'20px',
+        fontSize:'24px',
         fontFamily:'Segoe UI',
         fontWeight:'500'
     }
@@ -465,14 +470,14 @@ export const OneHourCard__humidityIconAndPercentage = (screenWidth) =>{
 export const OneHourCard__humidityIconImg = (screenWidth) =>{
 
     return{
-        width:'20px',
+        width:'24px',
     }
 }
 
 export const OneHourCard__humidityPercentage = (screenWidth) =>{
 
     return{
-        fontSize:'16px', fontFamily:'Segoe UI', fontWeight:'400'
+        fontSize:'20px', fontFamily:'Segoe UI', fontWeight:'400'
     }
 }
 
@@ -523,15 +528,20 @@ export var OneDayForecast = (screenWidth, isEven) =>{
         display:'flex', 
         flexWrap:'wrap',
         width:'100%',
-        padding:'2px',
+        // padding:'8px',
         backgroundColor:isEven ? color : color,
     }
 }
-export const OneDayForecast__box = (screenWidth) =>{
+export const OneDayForecast__box = (screenWidth, index) =>{
 
     return{
         width:'100%',
-        display:'flex', flexDirection:'row', justifyContent:'space-between', flexWrap:screenWidth>1000 ? 'nowrap': screenWidth > 450 && screenWidth <= 1000 ? 'nowrap' : 'wrap',
+        display:'flex', flexDirection:'row', justifyContent:'space-between', flexWrap:screenWidth>1000 ? 'nowrap': screenWidth > 450 && screenWidth <= 1000 ? 'wrap' : 'wrap',
+        borderTop:'1px solid black',
+        borderLeft:'1px solid black',
+        borderRight:'1px solid black',
+        borderBottom:index == 7 ?'1px solid black' : 'none',
+        borderRadius:'4px',
         
     }
 }
@@ -540,26 +550,27 @@ export const OneDayForecast__container1 = (screenWidth) =>{
     return{
         display:'flex', flexDirection:'row', alignItems:'baseline', justifyContent:'flex-start',
         padding:'0px 4px',
-        flex:2,
+        flex: screenWidth > 1044 ? 2 : screenWidth > 450 && screenWidth <= 1044 ? 2 : 1,
     }
 }
 export const OneDayForecast__day = (screenWidth) =>{
 
     return{
-        fontSize:'20px', fontWeight:'500',
+        fontSize:'24px', fontWeight:'500',
     }
 }
 export const OneDayForecast__date = (screenWidth) =>{
 
     return{
-        fontSize:'18px', fontWeight:'400',
+        fontSize:'20px', fontWeight:'400',
+        display: screenWidth> 1044 ? 'flex' : screenWidth > 450 && screenWidth <= 1044 ? 'flex' : 'none',
     }
 }
 
 export const OneDayForecast__container2 = (screenWidth) =>{
 
     return{
-        flex:1,
+        flex: 1,
         display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'flex-start',
     }
 }
@@ -567,21 +578,21 @@ export const OneDayForecast__container2 = (screenWidth) =>{
 export const OneDayForecast__temperatureIcon = (screenWidth) =>{
 
     return{
-        fontSize:'24px', padding:'2px',
+        fontSize:'28px', padding:'2px',
     }
 }
 
 export const OneDayForecast__temperature = (screenWidth) =>{
 
     return{
-        fontSize:'20px', fontWeight:'500',
+        fontSize:'24px', fontWeight:'500',
     }
 }
 
 export const OneDayForecast__container3 = (screenWidth) =>{
 
     return{
-        flex:2,
+        flex: screenWidth> 1044 ? 4 : 1,
         display:'flex', flexDirection:'row', alignItems:'baseline', justifyContent:'space-around',
     }
 }
@@ -589,7 +600,7 @@ export const OneDayForecast__container3 = (screenWidth) =>{
 export const OneDayForecast__temperatureDescription1 = (screenWidth) =>{
 
     return{
-        fontSize:'20px', fontWeight:'500',
+        fontSize:'24px', fontWeight:'500',
     }
 }
 
@@ -597,7 +608,8 @@ export const OneDayForecast__temperatureDescription1 = (screenWidth) =>{
 export const OneDayForecast__temperatureDescription2 = (screenWidth) =>{
 
     return{
-        fontSize:'18px', fontWeight:'400',
+        fontSize:'20px', fontWeight:'400',
+        display:screenWidth > 1044 ? 'flex' : 'none'
     }
 }
 
@@ -605,6 +617,7 @@ export const OneDayForecast__container4 = (screenWidth) =>{
 
     return{
         flex:1,
+        width: screenWidth > 1024 ? 'auto' : screenWidth <= 1024 && screenWidth > 450 ? '50%' : '50%',
         display:'flex', flexDirection:'row', justifyContent:'flex-end', padding:'0px 4px 0px 0px', alignItems:'center',
     }
 }
@@ -612,13 +625,13 @@ export const OneDayForecast__container4 = (screenWidth) =>{
 export const OneDayForecast__humidityIconImg = (screenWidth) =>{
 
     return{
-        width:'20px', padding:'2px',
+        width:'24px', padding:'2px',
     }
 }
 
 export const OneDayForecast__humidityPercentage = (screenWidth) =>{
 
     return{
-        fontSize:'16px', fontWeight:'400'
+        fontSize:'20px', fontWeight:'400'
     }
 }

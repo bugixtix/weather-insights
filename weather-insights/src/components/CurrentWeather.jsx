@@ -11,7 +11,7 @@ import PartlyCloudy from '../weather-svgs/b_1_partly_cloudy.svg'
 import Cloudy from '../weather-svgs/b_2_cloudy.svg'
 import VeryCloudy from '../weather-svgs/b_3_very_cloudy.svg'
 import CloudyNight from '../weather-svgs/b_4_cloudy_night.svg'
-import {ReactComponent as Rainy} from '../weather-svgs/c_1_rainy.svg'
+// import Rainy from '../weather-svgs/c_1_rainy.svg'
 import HeavyRain from '../weather-svgs/c_2_heavy_rain.svg'
 import Thunderstorm from '../weather-svgs/c_3_thunderstorm.svg'
 import Lightning from '../weather-svgs/c_4_lightning.svg'
@@ -44,7 +44,7 @@ export default function CurrentWeather({screenWidth, labels, data, place, curren
                     {currentWeatherData.city != '' ? currentWeatherData.city : 'Musterstadt'}
                 </p>
                 <div className="CurrentWeather__weatherIcon">
-                    <img className="CurrentWeather__weatherIconImg" src={Rainy} />
+                    <img className="CurrentWeather__weatherIconImg" src={VeryStormy} />
                 </div>
             
             <div className="CurrentWeather__container2" >

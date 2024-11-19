@@ -2,63 +2,106 @@
 
 // import React from "react";
 import * as React from "react"
+import { useEffect, useState } from "react"
 import '../styles/media-styles.css'
+import {RiCelsiusLine as Celsius} from 'react-icons/ri'
 
-import Sunny from '../weather-svgs/a_1_sunny.svg'
-import VerySunny from '../weather-svgs/a_3_very_sunny.svg'
-import ClearNight from '../weather-svgs/a_4_night.svg'
-import PartlyCloudy from '../weather-svgs/b_1_partly_cloudy.svg'
-import Cloudy from '../weather-svgs/b_2_cloudy.svg'
-import VeryCloudy from '../weather-svgs/b_3_very_cloudy.svg'
-import CloudyNight from '../weather-svgs/b_4_cloudy_night.svg'
-import {ReactComponent as Rainy} from '../weather-svgs/c_1_rainy.svg'
-import HeavyRain from '../weather-svgs/c_2_heavy_rain.svg'
-import Thunderstorm from '../weather-svgs/c_3_thunderstorm.svg'
-import Lightning from '../weather-svgs/c_4_lightning.svg'
-import Snow from '../weather-svgs/d_1_snow.svg'
-import HeavySnow from '../weather-svgs/d_2_heavy_snow.svg'
-import Sleet from '../weather-svgs/d_3_sleet.svg'
-import Fog from '../weather-svgs/d_4_fog.svg'
-import Windy from '../weather-svgs/f_3_windy.svg'
-import VeryWindy from '../weather-svgs/f_4_very_windy.svg'
-import Stormy from '../weather-svgs/g_1_stormy.svg'
-import VeryStormy from '../weather-svgs/g_2_very_stormy.svg'
+import clear_day from '../weather-svgs/clear-day.svg'
+import clear_night from '../weather-svgs/clear-night.svg'
+import partly_cloudy_day from '../weather-svgs/partly-cloudy-day.svg'
+import partly_cloudy_night from '../weather-svgs/partly-cloudy-night.svg'
+import cloudy from '../weather-svgs/cloudy.svg'
+import overcast from '../weather-svgs/overcast.svg'
+import fog from '../weather-svgs/fog.svg'
+import drizzle from '../weather-svgs/drizzle.svg'
+import raindrop from '../weather-svgs/raindrop.svg'
+import rain from '../weather-svgs/rain.svg'
+import sleet from '../weather-svgs/sleet.svg'
+import snowflake from '../weather-svgs/snowflake.svg'
+import snow from '../weather-svgs/snow.svg'
+import thunderstorms from '../weather-svgs/thunderstorms.svg'
 
 
 import { HourlyWeatherChart } from "./HourlyWeatherChart";
 
 import { wmoCodeInterpretation } from "./WMO-Code";
+
 import { CurrentWeather as CurrentWeatherStyle, CurrentWeather__container1, CurrentWeather__container2, CurrentWeather__description, CurrentWeather__temperature, CurrentWeather__temperatureAndDescription, CurrentWeather__label, CurrentWeather__weatherIcon, CurrentWeather__weatherIconImg,CurrentWeather__box, CurrentWeather__video } from "../styles/styles";
+
 export default function CurrentWeather({screenWidth, labels, data, place, currentWeatherData}){
+
+    var [currentWeatherSvg, setCurrentWeatherSvg] = useState(snow)
+
+    var WMOCodeToSVG = {
+        0:clear_day,
+        1:clear_day,
+        2:partly_cloudy_day,
+        3:overcast,
+        45:fog,
+        48:fog,
+        51:drizzle,
+        53:drizzle,
+        55:drizzle,
+        56:drizzle,
+        57:drizzle,
+        61:raindrop,
+        63:rain,
+        65:rain,
+        66:sleet,
+        67:sleet,
+        71:snowflake,
+        73:snow,
+        75:snow,
+        77:snow,
+        80:rain,
+        81:rain,
+        82:rain,
+        85:rain,
+        86:rain,
+        95:thunderstorms,
+        96:thunderstorms,
+        99:thunderstorms
+      }
+    
+    useEffect(()=>{
+        if(currentWeatherData!=undefined){
+            console.log(currentWeatherData.weatherCode)
+            setCurrentWeatherSvg(WMOCodeToSVG[currentWeatherData.weatherCode])
+        }
+    },[currentWeatherData])
+    const currentDate = new Date().toDateString()
 
     return(
         <div className="CurrentWeather">
 
-            <div className="CurrentWeather__boxWrapper">
-
             <div className="CurrentWeather__box">
-                <p className="CurrentWeather__date">
-                    {currentWeatherData.date != '' ? (currentWeatherData.day + " " + currentWeatherData.date) : "date"}
-                </p>
-                <p className="CurrentWeather__label">
-                    {currentWeatherData.city != '' ? currentWeatherData.city : 'Musterstadt'}
-                </p>
-                <div className="CurrentWeather__weatherIcon">
-                    <img className="CurrentWeather__weatherIconImg" src={Rainy} />
-                </div>
-            
-            <div className="CurrentWeather__container2" >
-                <div className="CurrentWeather__temperatureAndDescription">
-                    <p className="CurrentWeather__temperature">
-                        {currentWeatherData.temperature != '' ? `${Math.round(currentWeatherData.temperature)}°` : '0°'}
+
+                <div className="CurrentWeather__dateNlabel">
+                    <p className="CurrentWeather__date">
+                        {currentDate}
                     </p>
-                    <div className="CurrentWeather__description">
-                        {currentWeatherData.weatherCode ? wmoCodeInterpretation[currentWeatherData.weatherCode] : "Moderate/heavy snow pellets or small hail shower(s)"}
-                        <p className="description__tooltip">{currentWeatherData.weatherCode ? wmoCodeInterpretation[currentWeatherData.weatherCode] : ".Moderate/heavy snow pellets or small hail shower(s)"}</p>
-                    </div>
+                    <p className="CurrentWeather__label">
+                        {currentWeatherData.city != '' ? currentWeatherData.city : 'City'}
+                    </p>
                 </div>
-            </div>
-            </div>
+
+                <div className="CurrentWeather__weatherIcon">
+                    <img className="CurrentWeather__weatherIconImg" src={currentWeatherSvg} />
+                </div>
+                
+                <div className="CurrentWeather__tempNicon">
+                    <p className="CurrentWeather__temperature">
+                        {currentWeatherData.temperature != '' ? `${Math.round(currentWeatherData.temperature)}` : '0'}
+                    </p>
+                    <Celsius className="CurrentWeather__tempIcon"/> 
+                
+                </div>
+                <div className="CurrentWeather__description">
+                    <p className="CurrentWeather__descText">
+                        {currentWeatherData.weatherCode ? wmoCodeInterpretation[currentWeatherData.weatherCode] : "Moderate/heavy snow pellets or small hail shower(s)"}
+                    </p>
+                </div>
+                
             </div>
 
             

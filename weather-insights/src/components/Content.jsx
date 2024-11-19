@@ -22,8 +22,8 @@ export default function Content({screenWidth, screenWidth$, isLocation, isLocati
             <div className="Content__container1">
                 <SearchBar screenWidth={screenWidth} isLocation={isLocation} isLocation$={isLocation$} showAlert$={showAlert$} showAlert={showAlert} messageAlert$={messageAlert$} currentWeatherData$={currentWeatherData$} currentWeatherData={currentWeatherData}/>
                 <CurrentWeather screenWidth={screenWidth} labels={labels} data={data} place={place} currentWeatherData={currentWeatherData}/>
-                <HourlyWeather screenWidth={screenWidth}/>
-                <WeatherForecast screenWidth={screenWidth}/>
+                {/* <HourlyWeather screenWidth={screenWidth}/>
+                <WeatherForecast screenWidth={screenWidth}/> */}
             </div>
         </div>
     )

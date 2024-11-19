@@ -1,62 +1,3 @@
-// import Sunny from '../weather-svgs/a_1_sunny.svg'
-// import VerySunny from '../weather-svgs/a_3_very_sunny.svg'
-// import ClearNight from '../weather-svgs/a_4_night.svg'
-// import PartlyCloudy from '../weather-svgs/b_1_partly_cloudy.svg'
-// import Cloudy from '../weather-svgs/b_2_cloudy.svg'
-// import VeryCloudy from '../weather-svgs/b_3_very_cloudy.svg'
-// import CloudyNight from '../weather-svgs/b_4_cloudy_night.svg'
-// import Rainy from '../weather-svgs/c_1_rainy.svg'
-// import HeavyRain from '../weather-svgs/c_2_heavy_rain.svg'
-// import Thunderstorm from '../weather-svgs/c_3_thunderstorm.svg'
-// import Lightning from '../weather-svgs/c_4_lightning.svg'
-// import Snow from '../wather-svgs/d_1_snow.svg'
-// import HeavySnow from '../weather-svgs/d_2_heavy_snow.svg'
-// import Sleet from '../weather-svgs/d_3_sleet.svg'
-// import Fog from '../weather-svgs/d_4_fog.svg'
-// import Windy from '../weather-svgs/f_3_windy.svg'
-// import VeryWindy from '../weather-svgs/f_4_very_windy.svg'
-// import Stormy from '../weather-svgs/g_1_stormy.svg'
-// import VeryStormy from '../weather-svgs/g_2_very_stormy.svg'
-
-
-// export function WMOCodeToSVG(code, isday,className){
-//   var ar_cloudy = [4,5,6,7,8,14,15,16,19];
-//   var ar_rainy = [21,24,25,50,51,52,60,61,63,65,68,80,81,83,90,91];
-//   var ar_heavyRain = [53,54,55,56,57,58,59,62,64,66,67,69,82,93];
-//   var ar_thunder = [17,29,92];
-//   var ar_snow = [20,22,70,71,72,73,75,85,86,94];
-//   var ar_heavySnow = [26,36,37,38,39,27,74,76,95];
-//   var ar_sleet = [23,77,78,79,83,84,87,88,89];
-//   var ar_fog = [10,11,12,28,40,41,42,43,44,45,46,47,48,49];
-//   var ar_veryWindy = [33,34,35]
-//   var ar_stormy = [9,30,31,96,97,98]
-//   return <img className={className} src=
-//       {
-//         code === 0 && isday === 1? Sunny
-//         : code === 1 ? VerySunny
-//         : code === 0 && isday === 0 ? ClearNight
-//         : code === 2 ? PartlyCloudy
-//         : ar_cloudy.indexOf(code) !== -1 ? Cloudy
-//         : code === 3 && isday === 1 ? VeryCloudy
-//         : (code === 3 && isday === 0) || (code === 3 && isday === 0) ? <CloudyNight/> 
-//         : ar_rainy.indexOf(code) !== -1 ? Rainy 
-//         : ar_heavyRain.indexOf(code) !== -1 ? HeavyRain 
-//         : ar_thunder.indexOf(code) !== -1 ? Thunderstorm
-//         : code === 13 ? Lightning
-//         : ar_snow.indexOf(code) !== -1 ? Snow
-//         : ar_heavySnow.indexOf(code) !== -1 ? HeavySnow
-//         : ar_sleet.indexOf(code) !== -1 ? Sleet
-//         : ar_fog.indexOf(code) !== -1 ? Fog
-//         : code === 18 || code === 32 ? Windy
-//         : ar_veryWindy.indexOf(code) !== -1 ? VeryWindy 
-//         : ar_stormy.indexOf(code) !== -1 ? Stormy
-//         : code === 29 || code === 99 ? VeryStormy
-//         : VeryStormy
-//       }
-//     />
-// }
-
-
 
 export var wmoCodeInterpretation = {
 
@@ -160,8 +101,115 @@ export var wmoCodeInterpretation = {
     97: "Moderate drizzle, not at observation time",
     98: "Heavy drizzle, not at observation time",
     99: "Thunderstorm, not at observation time",
-  
+
   };
+
+export var WMOCodeText = {
+
+  0:"Clear Sky",
+  1:"Mainly Clear",
+  2:"Partly Cloudy",
+  3:"Overcast",
+  45:"Fog", 
+  48:"Depositing Rime Fog", 
+  51:"Light Drizzle", 
+  53:"Moderate Drizzle", 
+  55:"Dense Drizzle", 
+  56:"Light Freezing Drizzle", 
+  57:"Dense Freezing Drizzle",
+  61:"Slight Rain", 
+  63:"Moderate Rain",
+  65:"Heavy Rain", 
+  66:"Light Freezing Rain", 
+  67:"Heavy Freezing Rain", 
+  71:"Slight Snow Fall", 
+  73:"Moderate Snow Fall", 
+  75:"Heavy Snow Fall",  
+  77:"Snow Grains", 
+  80:"Slight Rain Showers",
+  81:"Moderate Rain Showers",
+  82:"Violent Rain Showers",
+  85:"Slight Snow Showers",
+  86:"Heavy Snow Showers",
+  95:"Thunderstorm",
+  96:"Thunderstorm With Slight Hail",
+  99:"Thunderstorm With Heavy Hail",
+
+}
+export var WMOCodeToSVG = {
+  0:"clear_day",
+  1:"clear_day",
+  2:"partly_cloudy_day",
+  3:"overcast",
+  45:"fog",
+  48:"fog",
+  51:"drizzle",
+  53:"drizzle",
+  55:"drizzle",
+  56:"drizzle",
+  57:"drizzle",
+  61:"raindrop",
+  63:"rain",
+  65:"rain",
+  66:"sleet",
+  67:"sleet",
+  71:"snowflake",
+  73:"snow",
+  75:"snow",
+  77:"snow",
+  80:"rain",
+  81:"rain",
+  82:"rain",
+  85:"rain",
+  86:"rain",
+  95:"thunderstorm",
+  96:"thunderstorm",
+  99:"thunderstorm"
+}
+//   0	Clear sky
+// 1, 2, 3	Mainly clear, partly cloudy, and overcast
+// 45, 48	Fog and depositing rime fog
+// 51, 53, 55	Drizzle: Light, moderate, and dense intensity
+// 56, 57	Freezing Drizzle: Light and dense intensity
+// 61, 63, 65	Rain: Slight, moderate and heavy intensity
+// 66, 67	Freezing Rain: Light and heavy intensity
+// 71, 73, 75	Snow fall: Slight, moderate, and heavy intensity
+// 77	Snow grains
+// 80, 81, 82	Rain showers: Slight, moderate, and violent
+// 85, 86	Snow showers slight and heavy
+// 95 *	Thunderstorm: Slight or moderate
+// 96, 99 *	Thunderstorm with slight and heavy hail
+
+  // 0: clear day 0
+  // 1: clear night 
+  // 2: cloudy 1,6  
+  // 3: fog 3,4,5
+  // 4: fog day,
+  // 5: fog night, 
+  // 6: hail, 
+  // 7: lightning bolt, 
+  // 8: mist,
+  // 9: overcast,
+  // 10: overcast day,
+  // 11: overcast night, 
+  // 12: partly cloudy day,
+  // 13: partly cloudy night,
+  // 14: partly cloudy day rain,
+  // 15: partly cloudy day snow,
+  // 16: partly cloud night rain,
+  // 17: partly cloudy night snow,
+  // 18: rain,
+  // 19: raindrop,
+  // 20: sleet,
+  // 21: snow, 
+  // 22: snowflake,
+  // 23: thunderstorms,
+  // 24: thunderstorms night,
+  // 25: thunderstorms night rain,
+  // 26: thunderstorms night snow, 
+  // 27: thunderstorms rain,
+  // 28: thunderstorms snow,
+  // 29: wind
 
   
   

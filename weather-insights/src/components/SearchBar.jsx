@@ -59,6 +59,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
         //
         timeOffset = item.properties.timezone.offset_DST
         //
+        console.log("timeoffset:::" + timeOffset)
         console.log(_coordinates_)
         //
         currentWeatherData$(prev=>({...prev, city:address}))
@@ -320,13 +321,13 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
 
     // SHOW COORDINATES EVERYTIME IT CHANGED
     useEffect(()=>{
-        // console.log(coordinates)
-
-        if(coordinates.longitude != '' && coordinates.latitude != ''){
-            // FetchWeatherData()   
+        var exCoordinates = {
+            latitude:"52.52437",
+            longitude:"13.41053"
         }
-        // console.log(currentWeatherData)
-    },[coordinates])
+        var timeOffset = '+02:00'
+        FetchWeatherData(exCoordinates, timeOffset)   
+    },[])
     //
 
     // useEffect(()=>{console.log("SUGGESTIONS RAN")},[suggestions])

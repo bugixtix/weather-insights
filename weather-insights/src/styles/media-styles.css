@@ -214,7 +214,7 @@
         width: 1.5rem !important;
     }
     .SearchBar__inputField:hover + .SearchBar__locationSVG{
-        transition: all ease 1000ms;
+        transition: all ease 600ms;
         transform: translateY(-1.6rem) ;
     }
     .SearchBar__currentLocationSVG{

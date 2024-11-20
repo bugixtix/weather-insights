@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Content as ContentStyle, Content__container1, Content__text } from "../styles/styles";
 import SearchBar from "./SearchBar";
 import CurrentWeather from "./CurrentWeather";
@@ -12,16 +12,22 @@ import { HourlyWeatherChart } from "./HourlyWeatherChart";
 
 export default function Content({screenWidth, screenWidth$, isLocation, isLocation$, cloud, showAlert$, showAlert, messageAlert$, currentWeatherData, currentWeatherData$}){
     
-    var labels = ['0 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM','6 AM', '7 AM','8 AM','9 AM','10 AM', '11 AM','12 PM'];
+    var labels = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00','06:00', '07:00','08:00','09:00','10:00', '11:00','12:00'];
     var data = ['13','12','11','9','9','11','14','15','15','18','19','21','23'];
-    // var data = ['1','2','3']
-    var place = 'Leipzig';
+    var [hourlyForecastData, hourlyForecastData$] = useState([labels, data])
 
+    
+    // var data = ['1','2','3']
+    var place = 'Berlin';
+
+    useEffect(()=>{
+        console.log(hourlyForecastData)
+    },[hourlyForecastData])
     return(
         <div className="Content">
             <div className="Content__container1">
-                <SearchBar screenWidth={screenWidth} isLocation={isLocation} isLocation$={isLocation$} showAlert$={showAlert$} showAlert={showAlert} messageAlert$={messageAlert$} currentWeatherData$={currentWeatherData$} currentWeatherData={currentWeatherData}/>
-                <CurrentWeather screenWidth={screenWidth} labels={labels} data={data} place={place} currentWeatherData={currentWeatherData}/>
+                <SearchBar screenWidth={screenWidth} isLocation={isLocation} isLocation$={isLocation$} showAlert$={showAlert$} showAlert={showAlert} messageAlert$={messageAlert$} currentWeatherData$={currentWeatherData$} currentWeatherData={currentWeatherData} hourlyForecastData={hourlyForecastData} hourlyForecastData$={hourlyForecastData$}/>
+                <CurrentWeather screenWidth={screenWidth} place={place} currentWeatherData={currentWeatherData} hourlyForecastData={hourlyForecastData}/>
                 {/* <HourlyWeather screenWidth={screenWidth}/>
                 <WeatherForecast screenWidth={screenWidth}/> */}
             </div>

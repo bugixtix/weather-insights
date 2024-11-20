@@ -5,7 +5,7 @@ import locationSVG from '../weather-svgs/locationSVG.svg'
 import currentLocationSVG from '../weather-svgs/location1SVG.svg'
 import {fetchWeatherApi} from 'openmeteo'
 
-export default function SearchBar({screenWidth, isLocation, isLocation$, showAlert$, showAlert, messageAlert$, currentWeatherData$, currentWeatherData}){
+export default function SearchBar({screenWidth, isLocation, isLocation$, showAlert$, showAlert, messageAlert$, currentWeatherData$, currentWeatherData, hourlyForecastData, hourlyForecastData$}){
     
     const [inputFocused, inputFocused$] = useState(false)
     const [searchButtonHovered, searchButtonHovered$] = useState(false);
@@ -185,8 +185,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
     const FetchWeatherData = async (_coordinates_,_timeOffset_) =>{
         var latitude = _coordinates_.latitude;
         var longitude = _coordinates_.longitude;
-        // var latitude = '-14.00';
-        // var longitude = '51.50';
+        
         if(longitude == '' || latitude == ''){
             return
         }
@@ -197,7 +196,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             console.log(data)
 
             const now = new Date();
-            const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000); // UTC Zeit in Millisekunden
+            const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000); // UTC time in millieseconds
             const offsetHours = parseInt(_timeOffset_.split(":")[0]);
             const offsetMinutes = parseInt(_timeOffset_.split(":")[1]);
 
@@ -209,14 +208,14 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             localTime.setSeconds(0);
             localTime.setMilliseconds(0);
 
-            const currentTimeString = formatLocalTime(data.current.time.split('T')[0]);
+            const currentTimeString = formatLocalTime(data.current.time);
 
             const timeIndex = data.minutely_15.time.findIndex(time=> time === currentTimeString) ;
-            console.log(timeOffset)
-            console.log(localTime)
-            console.log(timeIndex)
-            console.log(currentTimeString)
-
+            // console.log(timeOffset)
+            // console.log(localTime)
+            // console.log(timeIndex)
+            // console.log(currentTimeString)
+            
             const datePart = currentTimeString.split('T')[0];
             const timePart = currentTimeString.split('T')[1];
 
@@ -238,6 +237,28 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
                     snow:snows,
                     is_day:is_day
                 }))
+
+
+                
+                    var time = []
+                    var temp = []
+                    var temp_ = ""
+                    for(let i = 0;  i < 12; i++){
+                        var timeIndexCopy = timeIndex
+                        if(data.minutely_15.time[timeIndexCopy].split(':')[1] == '15') {timeIndexCopy = timeIndexCopy-1}
+                        if(data.minutely_15.time[timeIndexCopy].split(':')[1] == '30') {timeIndexCopy = timeIndexCopy-2}
+                        if(data.minutely_15.time[timeIndexCopy].split(':')[1] == '45') {timeIndexCopy = timeIndexCopy-3}
+                        timeIndexCopy = timeIndexCopy+(i*4)
+                        var time_ = data.minutely_15.time[timeIndexCopy]
+                        time_ = time_.split('T')[1]
+                        var temp_ = data.minutely_15.temperature_2m[timeIndexCopy]
+                        temp_ = Math.round(temp_)
+                        time[i]=(time_)
+                        temp[i]=(temp_)
+                    }
+                    
+                    hourlyForecastData$([time, temp])
+                  
             }
 
 
@@ -304,11 +325,14 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
 
     //  CUSTOM FUNCTION TO FORMATE LOCAL TIME
     function formatLocalTime(date) {
+        console.log(date)
         date = new Date(date)
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
         const hours = String(date.getHours()).padStart(2, '0');
+        console.log(hours)
+        console.log(date)
         const minutes = String(date.getMinutes()).padStart(2, '0');
         return `${year}-${month}-${day}T${hours}:${minutes}`;
     }

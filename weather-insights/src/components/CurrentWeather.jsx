@@ -24,11 +24,11 @@ import thunderstorms from '../weather-svgs/thunderstorms.svg'
 
 import { HourlyWeatherChart } from "./HourlyWeatherChart";
 
-import { wmoCodeInterpretation } from "./WMO-Code";
+import { wmoCodeInterpretation, WMOCodeText } from "./WMO-Code";
 
 import { CurrentWeather as CurrentWeatherStyle, CurrentWeather__container1, CurrentWeather__container2, CurrentWeather__description, CurrentWeather__temperature, CurrentWeather__temperatureAndDescription, CurrentWeather__label, CurrentWeather__weatherIcon, CurrentWeather__weatherIconImg,CurrentWeather__box, CurrentWeather__video } from "../styles/styles";
 
-export default function CurrentWeather({screenWidth, labels, data, place, currentWeatherData}){
+export default function CurrentWeather({screenWidth, place, currentWeatherData, hourlyForecastData}){
 
     var [currentWeatherSvg, setCurrentWeatherSvg] = useState(snow)
 
@@ -68,9 +68,11 @@ export default function CurrentWeather({screenWidth, labels, data, place, curren
             console.log(currentWeatherData.weatherCode)
             setCurrentWeatherSvg(WMOCodeToSVG[currentWeatherData.weatherCode])
         }
+        
     },[currentWeatherData])
-    const currentDate = new Date().toDateString()
 
+    const currentDate = new Date().toDateString()
+    
     return(
         <div className="CurrentWeather">
 
@@ -78,10 +80,10 @@ export default function CurrentWeather({screenWidth, labels, data, place, curren
 
                 <div className="CurrentWeather__dateNlabel">
                     <p className="CurrentWeather__date">
-                        {currentDate}
+                        {currentWeatherData.date != '' ? new Date(currentWeatherData.date).toDateString() : ' '}
                     </p>
                     <p className="CurrentWeather__label">
-                        {currentWeatherData.city != '' ? currentWeatherData.city : 'City'}
+                        {currentWeatherData.city != '' ? currentWeatherData.city : 'Berlin'}
                     </p>
                 </div>
 
@@ -91,21 +93,21 @@ export default function CurrentWeather({screenWidth, labels, data, place, curren
                 
                 <div className="CurrentWeather__tempNicon">
                     <p className="CurrentWeather__temperature">
-                        {currentWeatherData.temperature != '' ? `${Math.round(currentWeatherData.temperature)}` : '0'}
+                        {currentWeatherData.temperature != '' ? `${Math.round(currentWeatherData.temperature)}` : 'Not Available'}
                     </p>
                     <Celsius className="CurrentWeather__tempIcon"/> 
                 
                 </div>
                 <div className="CurrentWeather__description">
                     <p className="CurrentWeather__descText">
-                        {currentWeatherData.weatherCode ? wmoCodeInterpretation[currentWeatherData.weatherCode] : "Moderate/heavy snow pellets or small hail shower(s)"}
+                        {currentWeatherData.weatherCode >= 0 ? WMOCodeText[currentWeatherData.weatherCode] : "Weather Description is Not Available"}
                     </p>
                 </div>
                 
             </div>
 
             
-                <HourlyWeatherChart labels={labels} data={data} place={place}/>
+                <HourlyWeatherChart place={place} hourlyForecastData={hourlyForecastData}/>
             
 
         </div>

@@ -56,13 +56,6 @@ function App() {
   },400);
 
   useEffect(()=>{
-    const address = 'Weißenfels';
-    //
-    // getCoordinates(address).then(coord=>{
-    //   console.log(`Latitude: ${coord.latitude}, Longitude: ${coord.longitude}`)
-    // })
-
-    // screenWidth$(window.innerWidth)
     window.addEventListener('resize',handleResize);
     return ()=>window.removeEventListener('resize',handleResize)
   },[])

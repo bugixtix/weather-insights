@@ -4,12 +4,18 @@ import 'chart.js/auto'
 import annotationPlugin from 'chartjs-plugin-annotation'
 import { Chart as ChartJS, registerables } from "chart.js";
 import { Legend, Tooltip, elements } from "chart.js/auto";
+import { defaults } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 ChartJS.register(...registerables, ChartDataLabels);
 
 export function HourlyWeatherChart({place, hourlyForecastData}){
     var labels = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00','06:00', '07:00','08:00','09:00','10:00', '11:00','12:00'];
     var data = ['13','12','11','9','9','11','14','15','15','18','19','21','23'];
+
+    place = place==''?'Berlin':place
+
+    defaults.font.size = '18';
+    defaults.font.family = 'Raleway'
 
     var chartData = {
         labels:labels,
@@ -35,7 +41,7 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                 display:false,
             },
             title:{
-                display:true,
+                display:false,
                 text:'Hourly temperature in ' + place,
             },
             tooltip:{
@@ -87,6 +93,7 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                     pointHoverBackgroundColor:'#fff',
                     pointHoverBorderColor:'rgba(75,192,192,1)',
                     pointRadius:5,
+                    font:{size:20}
                 }
             ]
         })
@@ -95,10 +102,14 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
             plugins:{
                 legend:{
                     display:false,
+                    labels:{
+                        font:{size:18, family:'Raleway', weight:400}
+                    }
                 },
                 title:{
                     display:true,
                     text:'Hourly temperature in ' + place,
+                    font:{size:18, family:'Raleway', weight:400}
                 },
                 tooltip:{
                     enabled:true,
@@ -122,8 +133,8 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                     borderRadius:4,
                     padding:4,
                     font:{
-                        size:12,
-                        weight:'bold',
+                        size:18,
+                        weight:'400',
                     },
                     formatter:(value)=>value+'°'
                 },

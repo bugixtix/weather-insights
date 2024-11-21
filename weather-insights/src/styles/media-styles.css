@@ -19,20 +19,31 @@
         font-weight: bold !important;
         padding: 0.2rem 0rem;
     }
-    .SearchBar__container2{
+    .SearchBar{
+        flex-direction: column !important;
+    }
+    .SearchBar__container2,.SearchBar__container1{
         display: flex;
         flex-direction: column !important;
-        width: 100%;
+        width: 100% !important;
         justify-content: center; align-items: center;
     }
     .SearchBar__inputField, .SearchBar__inputField::placeholder{
         font-size: var(--phone-small-font) !important;
-        font-weight: bold !important;
+        /* font-weight: bold !important; */
+    }
+    .SearchBar__inputField{
+        width: 100% !important;
+    }
+    .SearchBar__locationButton{
+        padding: 0.4rem 2rem !important;
+        display: block !important;
+        text-align: start !important;
     }
     .SearchBar__locationButton, .SearchBar__searchButton{
-        width: 100%; 
+        width: 100% !important; 
         font-size: var(--phone-small-font) !important;
-        font-weight: bold !important;
+        /* font-weight: bold !important; */
     }
     .CurrentWeather{flex-direction:column !important;}
     .CurrentWeather__label{
@@ -43,9 +54,24 @@
         font-size: var(--phone-large-font) !important;
         font-weight: bold !important;
     }
-    .CurrentWeather__weatherIconImg{
-        width: 6rem !important;
-        padding: 0.5rem 0rem !important;
+    .CurrentWeather__box{
+        flex-direction: row !important;
+        align-items: center !important; justify-content: center !important;
+        height: 12rem !important;
+        padding: 1rem !important;
+        gap: 0rem !important;
+        flex-wrap: wrap !important;
+    }   
+    .CurrentWeather__compDescCon, .CurrentWeather__comDesc{
+        width: 100% !important;
+        text-align: center !important;
+    }
+    /*  */
+    .CurrentWeather__dateNlabel, .CurrentWeather__iconTextTempCon{
+        width: auto !important;
+    }
+    .CurrentWeather__dateNlabel{
+        flex-direction: column-reverse !important;
     }
     .WeatherForecast__label{
         font-size: var(--phone-small-font) !important;
@@ -84,23 +110,23 @@
     .SearchBar__container2{
         display: flex;
         flex-direction: row;
-        width: 100%;
+        /* width: 100%; */
         justify-content: center; align-items: center;
     }
     .SearchBar__inputField{
         padding:0.2rem 2rem !important; 
         font-size: var(--tablet-small-font) !important;
-        font-weight: bold !important;
+        /* font-weight: bold !important; */
     }
     .SearchBar__inputField::placeholder{
         font-size: var(--tablet-small-font) !important;
-        font-weight: bold !important;
+        /* font-weight: bold !important; */
     }
     .SearchBar__locationButton{
         flex:1;
-        padding: 0.2rem 0rem !important;
+        padding: 0.2rem 1rem !important;
         font-size: var(--tablet-small-font) !important;
-        font-weight:bold!important;
+        /* font-weight:bold!important; */
     }
     .SearchBar__searchButton{
         flex:1;
@@ -109,9 +135,24 @@
         font-weight:bold!important;
     }
     .CurrentWeather{flex-direction:column !important;}
-    .CurrentWeather__boxWrapper{
-        padding: 0.4rem 0rem !important;
-        min-height:9rem !important;
+    .CurrentWeather__box{
+        flex-direction: row !important;
+        align-items: center !important; justify-content: center !important;
+        height: 12rem !important;
+        padding: 1rem !important;
+        gap: 0rem !important;
+        flex-wrap: wrap !important;
+    }   
+    .CurrentWeather__compDescCon, .CurrentWeather__comDesc{
+        width: 100% !important;
+        text-align: center !important;
+    }
+    /*  */
+    .CurrentWeather__dateNlabel, .CurrentWeather__iconTextTempCon{
+        width: auto !important;
+    }
+    .CurrentWeather__dateNlabel{
+        flex-direction: column-reverse !important;
     }
     .CurrentWeather__label{
         font-size: var(--tablet-large-font) !important;
@@ -153,13 +194,13 @@
     .SearchBar__container2{
         display: flex;
         flex-direction: row;
-        width: 100%;
+        /* width: 100%; */
         justify-content: center; align-items: center;
     }
     .SearchBar__inputField{
         padding: 0.2rem 2rem !important;
         font-size: var(--tablet-medium-font) !important;
-        font-weight: bold !important;
+        /* font-weight: bold !important; */
     }
     .SearchBar__locationSVG{
         width: 1rem !important;
@@ -168,7 +209,7 @@
         flex:1;
         padding: 0.2rem 1rem !important;
         font-size: var(--tablet-medium-font) !important;
-        font-weight: bold !important;
+        /* font-weight: bold !important; */
     }
     .SearchBar__searchButton{
         flex:1;
@@ -176,9 +217,24 @@
         font-size: var(--tablet-medium-font) !important;
         font-weight: bold !important;
     }
-    .CurrentWeather__boxWrapper{
-        padding: 0.5rem 0rem 0rem 0rem !important;
-        min-height: 11rem !important;
+    .CurrentWeather__box{
+        flex-direction: row !important;
+        align-items: center !important; justify-content: center !important;
+        height: 12rem !important;
+        padding: 1rem !important;
+        gap: 0rem !important;
+        flex-wrap: wrap !important;
+    }   
+    .CurrentWeather__compDescCon, .CurrentWeather__comDesc{
+        width: 100% !important;
+        text-align: center !important;
+    }
+    /*  */
+    .CurrentWeather__dateNlabel, .CurrentWeather__iconTextTempCon{
+        width: auto !important;
+    }
+    .CurrentWeather__dateNlabel{
+        flex-direction: column-reverse !important;
     }
     .CurrentWeather__label{
         font-size: var(--tablet-large-font) !important;

@@ -15,7 +15,16 @@
     --xlarge-font:2.5rem;
     
 }
-
+@font-face {
+    font-family: 'Raleway';
+    src: url('./static/Raleway-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
 @keyframes MoveSun {
     0%{transform:  translateX(0rem) scale(1)}
     12.5%{transform:  translateX(0.5rem) scale(1)}
@@ -157,11 +166,10 @@
 .SearchBar__inputField::placeholder{
     color: var(--dark-color);
     font-size: var(--xSmall-font);
-}.SearchBar__inputField:focus, .SearchBar__inputField:hover{
-    border: 0.1rem solid var(--primary-color);
-} .SearchBar__inputField:hover::placeholder, .SearchBar__inputField:focus::placeholder{
-    color: var(--primary-color);
 }
+.SearchBar__inputField:focus, .SearchBar__inputField:hover{
+    border: 2px solid var(--primary-color);
+} 
 
 .SearchBar__suggestionsUl{
     position: absolute;
@@ -262,19 +270,19 @@
     margin: 0rem;
     cursor: pointer;
     border-radius: 1rem;
-    background-color: var(--light-color);
+    background-color: white;
     font-size: var(--xSmall-font);
     font-weight: 400;
     color: var(--dark-color);
     border: 0.1rem solid var(--xLight-color);
     transition: all ease 1100ms;
     box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
-    background: linear-gradient(to right, #dddddd99 50%,var(--primary-color)50%) left ;
+    background: linear-gradient(to right, #fefefe 50%,var(--primary-color)50%) left ;
     background-size: 200%;
     display: flex; flex-direction: row ; justify-content: center; align-items: center;
     gap:0.2rem;
 }.SearchBar__locationButton:hover, .SearchBar__locationButton:focus{
-    border: 0.1rem solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     /* background-color: var(--primary-color); */
     background-position: right;
     /* transform: scale(1.1); */
@@ -302,29 +310,36 @@
     box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
     border-radius: 0.4rem;
     background-color: var(--light-color);
-    
 }
 
 /*  */
 .CurrentWeather__box{
-    border: 0.1rem dashed var(--dark-color);
-    position: relative;
-    background-color: beige;
     /* width: 10rem; */
     display: flex; flex-direction: column;justify-content: center; align-items:flex-start; flex-wrap:wrap;
-    padding: 12px 8px;
-    border-radius: 8px;
     transition:all ease 600ms;
-    min-height: 300px;
-    width: 400px;
+    min-width: 35%;
     gap: 0.3rem;
+    padding: 0.4rem 1rem;
+    border: 0.1rem solid var(--xLight-color);
+    box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
+    border-radius: 0.4rem;
+    background-color: var(--light-color);
+}
+/*  */
+.CurrentWeather__weatherIcon{
+    /* width:unset; */
+    width: 8rem !important;
+}
+.CurrentWeather__weatherIconImg{
+    /* width: 8rem; */
+    width: 100%;
+    height: 100%;
 }
 /*  */
 .CurrentWeather__iconTextTempCon{
     display: flex; flex-direction: row; align-items: center; justify-content: center;
-    height: 10rem;
+    /* height: 10rem; */
     width: 100%;
-
 }
 /*  */
 .CurrentWeather__dateNlabel{
@@ -345,12 +360,13 @@
 /*  */
 .CurrentWeather__weatherIcon{
     display: flex ; flex-direction: row ; justify-content: flex-end; align-items: center;
-    width: 60%;
+    width: 50%;
+    height: 8rem;
 }
 .CurrentWeather__weatherIconImg{
     
     font-size:var(--small-font);
-    width: 50%;
+    width: 100%;
     /* object-fit: contain; */
     margin: 0;
     padding:0;
@@ -383,7 +399,7 @@
     width: 100%;
 }
 .CurrentWeather__descText{
-
+    font-size: var(--xSmall-font);
 }
 
 /*  */

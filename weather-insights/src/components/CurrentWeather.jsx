@@ -31,7 +31,12 @@ import { CurrentWeather as CurrentWeatherStyle, CurrentWeather__container1, Curr
 export default function CurrentWeather({screenWidth, place, currentWeatherData, hourlyForecastData}){
 
     var [currentWeatherSvg, setCurrentWeatherSvg] = useState(snow)
+    var [screenWidth, screenWidth$] = useState(window.innerWidth)
 
+
+    useEffect(()=>{
+        screenWidth$(window.innerWidth)
+    },[])
     var currentWeatherText = "Current Weather"
     var comprehensiveDescription = "Comprehensive description comes hier"
     var WMOCodeToSVG = {
@@ -82,9 +87,9 @@ export default function CurrentWeather({screenWidth, place, currentWeatherData, 
 
                 <div className="CurrentWeather__dateNlabel">
                     <p className="CurrentWeather__date">
-                        {currentWeatherText} 
-                        <br></br>
-                        {currentWeatherData.date != '' ? new Date(currentWeatherData.date).toDateString() + " at " + currentWeatherData.time : currentDate}
+                        {screenWidth > 1000 ? currentWeatherText : ''}
+                        {screenWidth > 1000 ? <br></br> : ''} 
+                        {currentWeatherData.date != '' ? currentWeatherData.time : currentDate}
                     </p>
                     <p className="CurrentWeather__label">
                         {currentWeatherData.city != '' ? currentWeatherData.city : 'Berlin'}
@@ -123,7 +128,7 @@ export default function CurrentWeather({screenWidth, place, currentWeatherData, 
             </div>
 
             
-                <HourlyWeatherChart place={place} hourlyForecastData={hourlyForecastData}/>
+                <HourlyWeatherChart place={currentWeatherData.city} hourlyForecastData={hourlyForecastData}/>
             
 
         </div>

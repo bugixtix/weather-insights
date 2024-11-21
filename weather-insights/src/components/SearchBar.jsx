@@ -79,35 +79,6 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
         //
     }
 
-    // EVENT SEARCH BUTTON CLICK 
-    var searchButton__click = () =>{
-
-        // HERE NEEDS IMMEDIATELY HELP ::
-
-        // showUl$(false)
-        
-        // isLocation$(true)
-
-        // if(query.length > 2 ){
-        //     suggestions.some(item => {
-        //         var city_ = item.properties.city ? item.properties.city : item.properties.address_line1
-        //         if(item.properties.city != undefined || item.properties.address_line1 != undefined){
-        //             if(city_.toLowerCase().includes(query)){
-        //                 currentWeatherData$(prev=>({...prev, city:city_}))
-        //                 coordinates$({latitude: item.properties.lat, longitude: item.properties.lon})
-        //                 timeOffset$(item.properties.timezone.offset_DST)
-        //                 return true
-        //             } 
-        //         }
-        //         return false
-        //     })
-        // }
-        
-        // FetchWeatherData();
-        // getCoordinatesFromAddress(query);
-    }
-
-
     // FUNCTION TO GET USER'S CURRENT COORDINATES
     const GetUsersCoordinates = () => {
             if (navigator.geolocation) {
@@ -276,7 +247,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
                 .then(data=>{
                 
                 const filteredData = data.features.filter(item=>item.properties.city!==undefined);
-                suggestions$(filteredData.features)
+                // suggestions$(filteredData.features)
 
                 suggestions$(data.features)
                 
@@ -366,8 +337,8 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
 
             <div className="SearchBar__container1" id="adress-container">
 
-                <input type="text" placeholder="Enter something" className="SearchBar__inputField" id="address-input" value={query} onChange={handleInputChange}/>
-                <img src={locationSVG} className="SearchBar__locationSVG"/>
+                <input type="text" placeholder="City" className="SearchBar__inputField" id="address-input" value={query} onChange={handleInputChange}/>
+                {/* <   img src={locationSVG} className="SearchBar__locationSVG"/> */}
 
                 <ul className={`SearchBar__suggestionsUl ${showUl?'showUl':''}`}>
                     {
@@ -386,8 +357,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             </div>
 
             <div className="SearchBar__container2">
-                {/* <button className="SearchBar__searchButton" onMouseEnter={()=>searchButtonHovered$(true)} onMouseLeave={()=>searchButtonHovered$(false)} onClick={searchButton__click}> Get Weather</button> */}
-                <button className="SearchBar__locationButton" onMouseEnter={()=>locationButtonHovered$(true)} onMouseLeave={()=>locationButtonHovered$(false)} onClick={locationButton__click}> Use my current Location <img src={currentLocationSVG} className="SearchBar__currentLocationSVG" /></button>
+                <button className="SearchBar__locationButton"  onClick={locationButton__click}> Use My Location </button>
             </div>
         </div>
     )

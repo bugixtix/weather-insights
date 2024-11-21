@@ -32,6 +32,8 @@ export default function CurrentWeather({screenWidth, place, currentWeatherData, 
 
     var [currentWeatherSvg, setCurrentWeatherSvg] = useState(snow)
 
+    var currentWeatherText = "Current Weather"
+    var comprehensiveDescription = "Comprehensive description comes hier"
     var WMOCodeToSVG = {
         0:clear_day,
         1:clear_day,
@@ -80,17 +82,23 @@ export default function CurrentWeather({screenWidth, place, currentWeatherData, 
 
                 <div className="CurrentWeather__dateNlabel">
                     <p className="CurrentWeather__date">
-                        {currentWeatherData.date != '' ? new Date(currentWeatherData.date).toDateString() : ' '}
+                        {currentWeatherText} 
+                        <br></br>
+                        {currentWeatherData.date != '' ? new Date(currentWeatherData.date).toDateString() + " at " + currentWeatherData.time : currentDate}
                     </p>
                     <p className="CurrentWeather__label">
                         {currentWeatherData.city != '' ? currentWeatherData.city : 'Berlin'}
                     </p>
                 </div>
+                
+                <div className="CurrentWeather__iconTextTempCon">
 
                 <div className="CurrentWeather__weatherIcon">
                     <img className="CurrentWeather__weatherIconImg" src={currentWeatherSvg} />
                 </div>
                 
+                <div className="CurrentWeather__tempNiconNdesc">
+
                 <div className="CurrentWeather__tempNicon">
                     <p className="CurrentWeather__temperature">
                         {currentWeatherData.temperature != '' ? `${Math.round(currentWeatherData.temperature)}` : 'Not Available'}
@@ -103,7 +111,15 @@ export default function CurrentWeather({screenWidth, place, currentWeatherData, 
                         {currentWeatherData.weatherCode >= 0 ? WMOCodeText[currentWeatherData.weatherCode] : "Weather Description is Not Available"}
                     </p>
                 </div>
+                </div>
+
+                </div>
+
+                <div className="CurrentWeather__compDescCon">
+                    <p className="CurrentWeather__compDesc"> {comprehensiveDescription}</p>
+                </div>
                 
+
             </div>
 
             

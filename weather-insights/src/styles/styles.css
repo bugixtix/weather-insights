@@ -200,7 +200,7 @@
     background-size: 200%;
     /* background-position: 100%; */
     border-bottom: 1px solid var(--liLight-color);
-    backdrop-filter: blur(2px);
+    /* backdrop-filter: blur(2px); */
 
 }.SearchBar__suggestionsLi:last-child{
     border-bottom: none;
@@ -320,6 +320,13 @@
     gap: 0.3rem;
 }
 /*  */
+.CurrentWeather__iconTextTempCon{
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+    height: 10rem;
+    width: 100%;
+
+}
+/*  */
 .CurrentWeather__dateNlabel{
     width: 100%;
     display: flex; flex-direction: column;
@@ -328,8 +335,6 @@
     font-size:var(--xSmall-font);
     padding: 4px;
     color: var(--black);
-    
-
 }
 .CurrentWeather__label{
     font-size: var(--small-font);
@@ -339,17 +344,26 @@
 
 /*  */
 .CurrentWeather__weatherIcon{
-    display: flex ; flex-direction: row ; justify-content: center; align-items: center;
-    width: 100%;
+    display: flex ; flex-direction: row ; justify-content: flex-end; align-items: center;
+    width: 60%;
 }
 .CurrentWeather__weatherIconImg{
     
     font-size:var(--small-font);
-    width: 6rem;
+    width: 50%;
+    /* object-fit: contain; */
+    margin: 0;
+    padding:0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+/*  */
+.CurrentWeather__tempNiconNdesc{
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+    width: 40%;
 }
 /*  */
 .CurrentWeather__tempNicon{
-    display:flex; flex-direction:row; justify-content:center; align-items:center;
+    display:flex; flex-direction:row; justify-content:flex-start; align-items:center;
     padding:0px 0.4rem;
     gap:0.4rem;
     width: 100%;

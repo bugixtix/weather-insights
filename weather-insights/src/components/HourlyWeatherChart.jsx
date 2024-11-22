@@ -56,7 +56,7 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                             label += context.parsed.y + '°'
                         }
                         return label
-                    }
+                    },
                 }
             },
             datalabels:{
@@ -93,7 +93,8 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                     pointHoverBackgroundColor:'#fff',
                     pointHoverBorderColor:'rgba(75,192,192,1)',
                     pointRadius:5,
-                    font:{size:20}
+                    font:{size:20},
+                    border:'none'
                 }
             ]
         })
@@ -123,7 +124,14 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                                 label += context.parsed.y + '°'
                             }
                             return label
-                        }
+                        },
+                        labelColor:function(context){return{
+                                borderColor: 'rgba(0, 0, 0,1)',
+                                backgroundColor: 'transparent',
+                                borderWidth: 2,
+                                borderDash: [4,4],
+                                borderRadius: 2,
+                        }},
                     }
                 },
                 datalabels:{
@@ -132,10 +140,11 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                     backgroundColor:'rgba(75,192,192,0.2)',
                     borderRadius:4,
                     padding:4,
-                    font:{
-                        size:18,
-                        weight:'400',
-                    },
+                    border:'none',
+                    // font:{
+                    //     size:18,
+                    //     weight:'400',
+                    // },
                     formatter:(value)=>value+'°'
                 },
             },

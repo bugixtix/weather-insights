@@ -40,6 +40,10 @@
         display: block !important;
         text-align: start !important;
     }
+    .CurrentWeather__weatherIcon{
+        height: 6rem !important;
+        width: 6rem !important;
+    }
     .SearchBar__locationButton, .SearchBar__searchButton{
         width: 100% !important; 
         font-size: var(--phone-small-font) !important;
@@ -51,13 +55,13 @@
         font-weight: bold !important;
     }
     .CurrentWeather__description, .CurrentWeather__temperature{
-        font-size: var(--phone-large-font) !important;
+        /* font-size: var(--phone-large-font) !important; */
         font-weight: bold !important;
     }
     .CurrentWeather__box{
         flex-direction: row !important;
         align-items: center !important; justify-content: center !important;
-        height: 12rem !important;
+        min-height: 8rem !important;
         padding: 1rem !important;
         gap: 0rem !important;
         flex-wrap: wrap !important;
@@ -86,7 +90,7 @@
     }
 
     .HourlyWeatherChart{
-        display: none !important;
+        min-height: 12rem !important;
     }
     .HourlyWeather{
         display: flex !important;
@@ -96,6 +100,16 @@
     }
     .SearchBar__liCity, .SearchBar__state, .SearchBar__country{
         font-size: var(--phone-small-font) !important;
+    }
+    .CurrentWeather__dateNlabel{
+        width: 100% !important;
+    }
+    .CurrentWeather__iconTextTempCon{
+        width: 100% !important;
+    }
+    .CurrentWeather__compDesc{
+        padding: 0rem !important;
+        text-align: start;
     }
 }
 
@@ -138,7 +152,7 @@
     .CurrentWeather__box{
         flex-direction: row !important;
         align-items: center !important; justify-content: center !important;
-        height: 12rem !important;
+        min-height: 8rem !important;
         padding: 1rem !important;
         gap: 0rem !important;
         flex-wrap: wrap !important;
@@ -159,12 +173,16 @@
         font-weight: bold !important;
     }
     .CurrentWeather__temperature, .CurrentWeather__description{
-        font-size: var(--tablet-medium-font) !important;
+        /* font-size: var(--tablet-medium-font) !important; */
         font-weight: bold !important;
     }
     .CurrentWeather__weatherIconImg{
         width: 6rem !important;
         padding: 0.4rem 0rem !important ;
+    }
+    .CurrentWeather__compDesc{
+        width: 100% !important;
+        text-align: center !important;
     }
     .WeatherForecast__label{
         font-size: var(--phone-medium-font) !important;
@@ -220,8 +238,8 @@
     .CurrentWeather__box{
         flex-direction: row !important;
         align-items: center !important; justify-content: center !important;
-        height: 12rem !important;
-        padding: 1rem !important;
+        min-height: 10rem !important;
+        padding: 0rem 0rem 1rem 0rem !important;
         gap: 0rem !important;
         flex-wrap: wrap !important;
     }   
@@ -241,10 +259,12 @@
         font-weight: bold !important;
     }
     .CurrentWeather__temperature, .CurrentWeather__description{
-        font-size: var(--tablet-medium-font) !important;
+        /* font-size: var(--tablet-medium-font) !important; */
     }
-    
-
+    .CurrentWeather__compDesc{
+        width: 100% !important;
+        text-align: center !important;
+    }
     .CurrentWeather{flex-direction:column !important;}
     .OneDayForecast__box{width: 5rem !important;}
     .WeatherForecast__label{

@@ -10,8 +10,11 @@ ChartJS.register(...registerables, ChartDataLabels);
 
 export function HourlyWeatherChart({place, hourlyForecastData}){
     var labels = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00','06:00', '07:00','08:00','09:00','10:00', '11:00','12:00'];
-    var data = ['13','12','11','9','9','11','14','15','15','18','19','21','23'];
+    var data = ['13','12','11','9','9','11','14'];
 
+    var screenWidth = window.innerWidth
+    hourlyForecastData[0].concat(0,6)
+    hourlyForecastData[1].concat(0,6)
     place = place==''?'Berlin':place
 
     defaults.font.size = '18';
@@ -80,11 +83,11 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
 
     useEffect(()=>{
         chartData_$({
-            labels:hourlyForecastData[0],
+            labels: screenWidth < 600 ? hourlyForecastData[0].slice(0,6) : hourlyForecastData[0],
             datasets:[
                 {
                     label:'temperature in °',
-                    data:hourlyForecastData[1],
+                    data: screenWidth < 600 ? hourlyForecastData[1].slice(0,6) : hourlyForecastData[1],
                     fill:false,
                     borderColor:'rgb(75,192,192)',
                     tension:0.1,
@@ -108,8 +111,8 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                     }
                 },
                 title:{
-                    display:true,
-                    text:'Hourly temperature in ' + place,
+                    display:false,
+                    text:'Hourly Temperature in ' + place,
                     font:{size:18, family:'Raleway', weight:400}
                 },
                 tooltip:{
@@ -132,7 +135,13 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                                 borderDash: [4,4],
                                 borderRadius: 2,
                         }},
-                    }
+                        labelPointStyle: function(context) {
+                            return {
+                                pointStyle: 'triangle',
+                                rotation: 0
+                            }}
+                        },
+
                 },
                 datalabels:{
                     display:true,
@@ -141,10 +150,6 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                     borderRadius:4,
                     padding:4,
                     border:'none',
-                    // font:{
-                    //     size:18,
-                    //     weight:'400',
-                    // },
                     formatter:(value)=>value+'°'
                 },
             },
@@ -163,6 +168,7 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
     
     return (
         <div className="HourlyWeatherChart">
+            <p>Hourly Weather in {place}</p>
             <Line data={chartData_} options={chartOptions_}/>
         </div>
     )

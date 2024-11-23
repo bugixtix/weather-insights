@@ -357,7 +357,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             </div>
 
             <div className="SearchBar__container2">
-                <button className="SearchBar__locationButton"  onClick={locationButton__click}> Use My Location </button>
+                <button className="SearchBar__locationButton"  onClick={locationButton__click}> Use My City </button>
             </div>
         </div>
     )

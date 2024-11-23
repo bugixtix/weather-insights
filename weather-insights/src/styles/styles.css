@@ -329,7 +329,7 @@
 /*  */
 .CurrentWeather__weatherIcon{
     /* width:unset; */
-    width: 8rem !important;
+    /* width: 8rem !important; */
 }
 .CurrentWeather__weatherIconImg{
     /* width: 8rem; */
@@ -361,8 +361,9 @@
 /*  */
 .CurrentWeather__weatherIcon{
     display: flex ; flex-direction: row ; justify-content: flex-end; align-items: center;
-    width: 50%;
+    /* width: 50%; */
     height: 8rem;
+    width: 8rem;
 }
 .CurrentWeather__weatherIconImg{
     
@@ -377,6 +378,7 @@
 .CurrentWeather__tempNiconNdesc{
     display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
     width: 40%;
+    flex: 1;
 }
 /*  */
 .CurrentWeather__tempNicon{
@@ -401,6 +403,12 @@
 }
 .CurrentWeather__descText{
     font-size: var(--xSmall-font);
+    
+}
+.CurrentWeather__compDesc{
+    font-size: var(--xSmall-font);
+    /* padding: 0rem 1rem; */
+    text-align: start;
 }
 
 /*  */

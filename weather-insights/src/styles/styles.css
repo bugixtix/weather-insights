@@ -129,8 +129,6 @@
     display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;
     opacity: 1;
     background-color: var(--transparent);
-    /* padding: 0rem 2rem 0rem 0rem; */
-    /* border: 0.1rem dotted var(--primary-color); */
     border-radius: 1rem;
     gap: 0.5rem;
 }

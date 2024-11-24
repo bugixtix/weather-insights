@@ -13,6 +13,7 @@
     --medium-font:1.6rem;
     --large-font:2rem;
     --xlarge-font:2.5rem;
+    --onedayforecast-day:14px;
     
 }
 @font-face {
@@ -523,7 +524,7 @@
 .WeatherForecast{
     width:100%;
     display:flex; flex-direction:column; background-color: var(--transparent);
-    padding: 0rem 0rem 0.5rem 0rem;
+    padding: 0.4rem 0rem 0.5rem 0rem;
 
 }
 .WeatherForecast__box{
@@ -559,16 +560,18 @@
 }
 .WeatherForecast__container2{
     width:100%;
-    display:flex; flex-direction: row;
-    overflow-x: unset;
+    display:flex; flex-direction: row; justify-content: space-between;
+    overflow-x: scroll;
+    padding: 0.4rem 0rem ;
 }
 
 .OneDayForecast{
     display:flex;
-    width:100%;
+    width:150px;
     background-color: var(--transparent);
-    cursor: pointer;
+    /* cursor: pointer; */
     transition:all ease 400ms;
+    /* padding: 1rem 0rem ; */
 }
 .OneDayForecast:hover{
     scale: 1.04;
@@ -578,7 +581,8 @@
     display:flex; flex-direction:column; justify-content:center; align-items: center;
     margin: 0rem 0.2rem;
     border-radius: 0.4rem;
-    padding: 0.4rem 0rem;
+    /* padding: 0.4rem 0rem; */
+    padding: 0.6rem 1rem;
     border: 0.1rem solid var(--xLight-color);
     box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
     background-color: var(--light-color);
@@ -591,15 +595,15 @@
     display: flex; flex-direction: column ; align-items: center ;justify-content:center;
 }
 .OneDayForecast__day{
-    font-size: var(--xSmall-font);
+    font-size: var(--onedayforecast-day);
     font-weight:400;
-    position: absolute;
-    top: 0.2rem;
+    /* position: absolute;
+    top: 0.2rem; */
 }
 .OneDayForecast__temperatureContainer{
     display: flex; flex-direction: row ; justify-content: center ; align-items: center ;
-    position: absolute;
-    bottom: 0.2rem;
+    /* position: absolute;
+    bottom: 0.2rem; */
     font-size: var(--xSmall-font);
 }
 .OneDayForecast__temperatureIcon{

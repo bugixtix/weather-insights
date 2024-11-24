@@ -4,7 +4,7 @@ import '../styles/alert.css'
 
 export default function Alert ({message, showAlert, showAlert$}){
 
-    useEffect(()=>{console.log(showAlert)},[showAlert])
+    // useEffect(()=>{console.log(showAlert)},[showAlert])
 
     return(
 

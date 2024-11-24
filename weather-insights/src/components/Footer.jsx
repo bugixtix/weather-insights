@@ -8,16 +8,14 @@ export default function Footer({screenWidth, screenWidth$}){
     useEffect(()=>{
         
     },[])
-    function openGithub(){
-        window.location.assign("https://github.com/bugixtix/weather-insights")
-    }
+    
     return(
 
         <div className="Footer">
             <div className="Footer__container1">
-                <p className="Footer__text" onClick={openGithub}>
-                    © Ixtix Bug
-                </p>
+                <a href="https://github.com/bugixtix/weather-insights" target="_blank" className="Footer__text" >
+                    @bugixtix 
+                </a>
             </div>
         </div>
     )

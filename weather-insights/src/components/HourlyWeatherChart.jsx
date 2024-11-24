@@ -163,7 +163,7 @@ export function HourlyWeatherChart({place, hourlyForecastData}){
                 }
             }
         })
-        console.log(hourlyForecastData)
+        // console.log(hourlyForecastData)
     },[hourlyForecastData])
     
     return (

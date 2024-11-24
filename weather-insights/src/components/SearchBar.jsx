@@ -5,7 +5,7 @@ import locationSVG from '../weather-svgs/locationSVG.svg'
 import currentLocationSVG from '../weather-svgs/location1SVG.svg'
 import {fetchWeatherApi} from 'openmeteo'
 
-export default function SearchBar({screenWidth, isLocation, isLocation$, showAlert$, showAlert, messageAlert$, currentWeatherData$, currentWeatherData, hourlyForecastData, hourlyForecastData$}){
+export default function SearchBar({screenWidth, isLocation, isLocation$, showAlert$, showAlert, messageAlert$, currentWeatherData$, currentWeatherData, hourlyForecastData, hourlyForecastData$, sevenDaysData, sevenDaysData$}){
     
     const [inputFocused, inputFocused$] = useState(false)
     const [searchButtonHovered, searchButtonHovered$] = useState(false);
@@ -50,7 +50,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
     // EVENT LIST ITEM CLICK
     var listItem__click = (item) =>{
         //
-        console.log(item)
+        // console.log(item)
         //
         var address = item.properties.city ? item.properties.city : item.properties.address_line1;
         var _coordinates_ = {latitude: item.properties.lat, longitude: item.properties.lon}
@@ -161,7 +161,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             return
         }
         try{
-            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,is_day,rain,showers,snowfall&minutely_15=temperature_2m,rain,snowfall,snowfall_height,freezing_level_height,weather_code&time_mode=time_interval&timezone=auto&models=best_match`);
+            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,is_day,rain,showers,snowfall&minutely_15=temperature_2m,rain,snowfall,snowfall_height,freezing_level_height,weather_code&time_mode=time_interval&timezone=auto&models=best_match&forecast_days=14`);
             if(!response.ok){throw new Error('Network response was not ok')}
             const data = await response.json();
             console.log(data)
@@ -228,7 +228,10 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
                         temp[i]=(temp_)
                     }
                     
-                    hourlyForecastData$([time, temp])
+                hourlyForecastData$([time, temp])
+
+                
+                sevenDaysData$()
                   
             }
 
@@ -296,14 +299,14 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
 
     //  CUSTOM FUNCTION TO FORMATE LOCAL TIME
     function formatLocalTime(date) {
-        console.log(date)
+        // console.log(date)
         date = new Date(date)
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
         const hours = String(date.getHours()).padStart(2, '0');
-        console.log(hours)
-        console.log(date)
+        // console.log(hours)
+        // console.log(date)
         const minutes = String(date.getMinutes()).padStart(2, '0');
         return `${year}-${month}-${day}T${hours}:${minutes}`;
     }

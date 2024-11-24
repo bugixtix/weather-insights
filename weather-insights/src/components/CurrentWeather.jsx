@@ -72,7 +72,7 @@ export default function CurrentWeather({screenWidth, place, currentWeatherData, 
     
     useEffect(()=>{
         if(currentWeatherData!=undefined){
-            console.log(currentWeatherData.weatherCode)
+            // console.log(currentWeatherData.weatherCode)
             setCurrentWeatherSvg(WMOCodeToSVG[currentWeatherData.weatherCode])
         }
         

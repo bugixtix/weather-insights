@@ -60,7 +60,7 @@ function App() {
     return ()=>window.removeEventListener('resize',handleResize)
   },[])
   useEffect(()=>{
-    console.log(currentWeatherData)
+    // console.log(currentWeatherData)
   },[currentWeatherData])
   
   return (

@@ -18,7 +18,7 @@ function App() {
   var [isLocation, isLocation$] = useState(false)
   var [showAlert, showAlert$] = useState(false)
   var [messageAlert, messageAlert$] = useState('test')
-
+  var [_7daysForecast, _7daysForecast$] = useState('')
   var [currentWeatherData, currentWeatherData$] = useState({
     city:"",
     temperature:"",
@@ -81,6 +81,7 @@ function App() {
       showAlert$={showAlert$} showAlert={showAlert}
       messageAlert$={messageAlert$}
       currentWeatherData$={currentWeatherData$} currentWeatherData={currentWeatherData}
+      _7daysForecast={_7daysForecast} _7daysForecast$={_7daysForecast$}
       />
 
       <Footer screenWidth={screenWidth} screenWidth$={screenWidth$}/>

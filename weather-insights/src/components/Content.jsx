@@ -10,7 +10,7 @@ import { Content__video } from "../styles/styles";
 import { HourlyWeatherChart } from "./HourlyWeatherChart";
 
 
-export default function Content({screenWidth, screenWidth$, isLocation, isLocation$, cloud, showAlert$, showAlert, messageAlert$, currentWeatherData, currentWeatherData$}){
+export default function Content({screenWidth, screenWidth$, isLocation, isLocation$, cloud, showAlert$, showAlert, messageAlert$, currentWeatherData, currentWeatherData$, _7daysForecast, _7daysForecast$}){
     
     var labels = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00','06:00', '07:00','08:00','09:00','10:00', '11:00','12:00'];
     var data = ['13','12','11','9','9','11','14','15','15','18','19','21','23'];
@@ -33,7 +33,7 @@ export default function Content({screenWidth, screenWidth$, isLocation, isLocati
                     messageAlert$={messageAlert$} 
                     currentWeatherData$={currentWeatherData$} currentWeatherData={currentWeatherData} 
                     hourlyForecastData={hourlyForecastData} hourlyForecastData$={hourlyForecastData$}
-                    sevenDaysData={sevenDaysData} sevenDaysData$={sevenDaysData$}
+                    _7daysForecast={_7daysForecast} _7daysForecast$={_7daysForecast$}
                 />
                 <CurrentWeather 
                     screenWidth={screenWidth} 
@@ -42,6 +42,7 @@ export default function Content({screenWidth, screenWidth$, isLocation, isLocati
                     hourlyForecastData={hourlyForecastData}
                 />
                 <WeatherForecast 
+                    _7daysForecast={_7daysForecast}
                     screenWidth={screenWidth}/>
             </div>
         </div>

@@ -5,7 +5,7 @@ import locationSVG from '../weather-svgs/locationSVG.svg'
 import currentLocationSVG from '../weather-svgs/location1SVG.svg'
 import {fetchWeatherApi} from 'openmeteo'
 
-export default function SearchBar({screenWidth, isLocation, isLocation$, showAlert$, showAlert, messageAlert$, currentWeatherData$, currentWeatherData, hourlyForecastData, hourlyForecastData$, sevenDaysData, sevenDaysData$}){
+export default function SearchBar({screenWidth, isLocation, isLocation$, showAlert$, showAlert, messageAlert$, currentWeatherData$, currentWeatherData, hourlyForecastData, hourlyForecastData$, _7daysForecast, _7daysForecast$}){
     
     const [inputFocused, inputFocused$] = useState(false)
     const [searchButtonHovered, searchButtonHovered$] = useState(false);
@@ -187,9 +187,16 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             // console.log(timeIndex)
             // console.log(currentTimeString)
             
-            const datePart = currentTimeString.split('T')[0];
-            const timePart = currentTimeString.split('T')[1];
+            const [datePart,timePart] = currentTimeString.split('T');
+            const [year_, month_, day_] = datePart.split('-').map(Number)
+            const [hours_, minutes_] = timePart.split(':').map(Number)
+            var today_ = new Date(year_, month_ -1, day_, hours_+1, minutes_)
+            today_.setDate(today_.getDate()+1);
+            // 
+            const tomorrow_ = today_.toISOString().slice(0, 16);
+            console.log(tomorrow_)
 
+            // console.log(datePart)
             if(timeIndex !== -1){
                 const currentTemperature = data.minutely_15.temperature_2m[timeIndex];
                 const currentWeatherCode = data.minutely_15.weather_code[timeIndex];
@@ -231,7 +238,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
                 hourlyForecastData$([time, temp])
 
                 
-                sevenDaysData$()
+                _7daysForecast$('')
                   
             }
 

@@ -7,19 +7,12 @@ import {fetchWeatherApi} from 'openmeteo'
 
 export default function SearchBar({screenWidth, isLocation, isLocation$, showAlert$, showAlert, messageAlert$, currentWeatherData$, currentWeatherData, hourlyForecastData, hourlyForecastData$, _7daysForecast, _7daysForecast$}){
     
-    const [inputFocused, inputFocused$] = useState(false)
-    const [searchButtonHovered, searchButtonHovered$] = useState(false);
-    const [locationButtonHovered, locationButtonHovered$] = useState(false);
     var [coordinates, coordinates$] = useState({latitude:'',longitude:''});
     var [query, query$] = useState('');
-    var [fetchWeatherTrigger, fetchWeatherTrigger$] = useState(false)
     var [suggestions, suggestions$] = useState([{properties:{address_line1:"Latakia", country:"Syria", state:"West", lon:"00", lat:"00",city:'Latakia',offset_DST:'00:00'}}])
     var myApiKey = "82a70ed9830646a88601463d8bee58d4";
     var [showUl, showUl$] = useState(false)
 
-    var [city, city$] = useState('')
-
-    var [weatherData, weatherData$] = useState([])
 
     var timeOffset = '00:00'
     

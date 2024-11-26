@@ -175,10 +175,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             const currentTimeString = formatLocalTime(data.current.time);
 
             const timeIndex = data.minutely_15.time.findIndex(time=> time === currentTimeString) ;
-            // console.log(timeOffset)
-            // console.log(localTime)
-            // console.log(timeIndex)
-            // console.log(currentTimeString)
+     
             
             const [datePart,timePart] = currentTimeString.split('T');
             const [year_, month_, day_] = datePart.split('-').map(Number)

@@ -39,7 +39,7 @@ export default function HourlyWeather({screenWidth,cloud}){
                 </div>
 
             </div>
-            {/* <button className="HourlyWeather__torightButton" onMouseEnter={()=>hoverRightButton$(true)} onMouseLeave={()=>hoverRightButton$(false)} onClick={scrollRight}><FiArrowRight/></button> */}
+            
         </div>
     )
 }

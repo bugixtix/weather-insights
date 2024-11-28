@@ -1,8 +1,5 @@
 import React from "react";
-// import drop from '../images/drop_.svg'
-// import cloud1 from '../images/sun_.svg'
-// import sunSVG from '../weather-svgs/a_1_sunny.svg'
-// import cloud from '%PUBLIC_URL%/images/sun_.svg'
+
 import { OneHourCard as OneHourCardStyle, OneHourCard__box, OneHourCard__hour, OneHourCard__hourText, OneHourCard__icon, OneHourCard__iconImg, OneHourCard__temperature, OneHourCard__temperatureText, OneHourCard__humidityIconAndPercentage, OneHourCard__humidityIconImg, OneHourCard__humidityPercentage,  } from "../styles/styles";
 export default function OneHourCard({screenWidth}){
  

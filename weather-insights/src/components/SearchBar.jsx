@@ -325,12 +325,6 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
     },[])
     //
 
-    // useEffect(()=>{console.log("SUGGESTIONS RAN")},[suggestions])
-
-    // FUNCTION TO HANDLE PUTTING VALUES IN UI
-    // async function FetchToGetWeather (coordinates) {
-    // }
-
 
     return(
         <div className="SearchBar" >

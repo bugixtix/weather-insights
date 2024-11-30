@@ -154,7 +154,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             return
         }
         try{
-            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,is_day,rain,showers,snowfall&minutely_15=temperature_2m,rain,snowfall,snowfall_height,freezing_level_height,weather_code&time_mode=time_interval&timezone=auto&models=best_match&forecast_days=14`);
+            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,is_day,rain,showers,snowfall&minutely_15=temperature_2m,rain,snowfall,snowfall_height,freezing_level_height,weather_code&time_mode=time_interval&timezone=auto&models=best_match&forecast_days=8`);
             if(!response.ok){throw new Error('Network response was not ok')}
             const data = await response.json();
             console.log(data)
@@ -173,7 +173,50 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             localTime.setMilliseconds(0);
 
             const currentTimeString = formatLocalTime(data.current.time);
+            const next7DaysDate = getNextSevenDays(data.current.time)
+            next7DaysDate.forEach(i=>{
+                var y = new Date(i)
+                console.log(y.toLocaleDateString('en-US', { weekday: 'long' }))
+            })
+            const indexesOf7Days = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]}
+            var temperatureOf7Days = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]}
+            var highestLowest7Days = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]}
+            var weatherCode7Days = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]}
 
+            for(let i = 0; i < next7DaysDate.length; i++){
+                var timeArray = data.minutely_15.time;
+                
+                var x = timeArray.findIndex(item=>item.startsWith(next7DaysDate[i]))
+                for(let y = x; y<x+95; y++){
+                    indexesOf7Days[i.toString()].push(y)
+                    temperatureOf7Days[i.toString()].push(Math.floor(data.minutely_15.temperature_2m[y]))
+                    weatherCode7Days[i.toString()].push(data.minutely_15.weather_code[y])
+                }
+                highestLowest7Days[i.toString()].push(Math.min(...temperatureOf7Days[i.toString()]))
+                highestLowest7Days[i.toString()].push(Math.max(...temperatureOf7Days[i.toString()]))
+
+                
+                // console.log(Math.max(...temperatureOf7Days[i.toString()]))
+            }
+            const codeFrequency = {};
+            var dominantCode7Days = []
+            for(let z = 0; z < 7; z++){
+                weatherCode7Days[z].forEach(code => {
+                    codeFrequency[code] = (codeFrequency[code] || 0) + 1;
+                });
+            
+                const dominantCode = Object.keys(codeFrequency).reduce((a, b) =>
+                    codeFrequency[a] > codeFrequency[b] ? a : b
+                );
+                dominantCode7Days.push(dominantCode)
+                // console.log('ss')
+            }
+            console.log(dominantCode7Days)
+            
+            
+            var timeArray = data.minutely_15.time;
+            
+            // console.log(data.minutely_15.time)
             const timeIndex = data.minutely_15.time.findIndex(time=> time === currentTimeString) ;
      
             
@@ -228,7 +271,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
                 hourlyForecastData$([time, temp])
 
                 
-                _7daysForecast$('')
+                _7daysForecast$([{lowestTemp:'', highestTemp:'', image:''}])
                   
             }
 
@@ -293,17 +336,35 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
     }
     // -----------------------------------------------
     
+    function getNextSevenDays(date) {
+        const days = [];
+        const now = new Date(date);
+    
+        for (let i = 1; i < 8; i++) {
+            const nextDay = new Date(now);
+            nextDay.setDate(now.getDate() + i);
+            days.push(formatDays(nextDay));
+        }
+        // console.log(days)
+        return days;
+    }
+
+    function formatDays(date){
+        date = new Date(date)
+        const year = date.getFullYear()
+        const month = String(date.getMonth()+1).padStart(2,'0');
+        const day = String(date.getDate()).padStart(2,'0')
+
+        return`${year}-${month}-${day}`
+    }
 
     //  CUSTOM FUNCTION TO FORMATE LOCAL TIME
     function formatLocalTime(date) {
-        // console.log(date)
         date = new Date(date)
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
         const hours = String(date.getHours()).padStart(2, '0');
-        // console.log(hours)
-        // console.log(date)
         const minutes = String(date.getMinutes()).padStart(2, '0');
         return `${year}-${month}-${day}T${hours}:${minutes}`;
     }

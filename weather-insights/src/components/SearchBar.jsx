@@ -209,7 +209,6 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
                     codeFrequency[a] > codeFrequency[b] ? a : b
                 );
                 dominantCode7Days.push(dominantCode)
-                // console.log('ss')
             }
             console.log(dominantCode7Days)
             

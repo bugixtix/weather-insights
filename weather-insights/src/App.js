@@ -12,13 +12,25 @@ import Alert from './components/Alert.jsx';
 
 function App() {
 
+  // TODO: 02-12-2024
+  // Style the forecast section better
+  // Find out why the dom is 3 times rendered and let it only one time
+  // Find a solution to the description text in current weather section
+  // Find a solution when you enter a city name (a full name at once) in the searchbar (currently occur happens)
+  // Style the searchbar in small screens
+  // Another color combination? If you got free time
+
   var [screenWidth, screenWidth$] = useState(1440)
   var [widthChanged, widthChanged] = useState(0)
   var [pageStarts, pageStarts$] = useState(false)
   var [isLocation, isLocation$] = useState(false)
   var [showAlert, showAlert$] = useState(false)
   var [messageAlert, messageAlert$] = useState('test')
-  var [_7daysForecast, _7daysForecast$] = useState('')
+  var [_7daysForecast, _7daysForecast$] = useState({
+    high_low:{0:[0,0],1:[0,0],2:[0,0],3:[0,0],4:[0,0],5:[0,0],6:[0,0]},
+    weather_code:[0,0,0,0,0,0,0],
+    day_name:['Saturday','Sunday','Monday','Tuesday','Wedensday','Thursday','Friday']
+  })
   var [currentWeatherData, currentWeatherData$] = useState({
     city:"",
     temperature:"",

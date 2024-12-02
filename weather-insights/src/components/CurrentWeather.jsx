@@ -20,6 +20,7 @@ import sleet from '../weather-svgs/sleet.svg'
 import snowflake from '../weather-svgs/snowflake.svg'
 import snow from '../weather-svgs/snow.svg'
 import thunderstorms from '../weather-svgs/thunderstorms.svg'
+import { WMOCodeToSVG } from "./WMO-Code"
 
 
 import { HourlyWeatherChart } from "./HourlyWeatherChart";
@@ -39,41 +40,14 @@ export default function CurrentWeather({screenWidth, place, currentWeatherData, 
     },[])
     var currentWeatherText = "Current Weather"
     var comprehensiveDescription = "Comprehensive description comes hier"
-    var WMOCodeToSVG = {
-        0:clear_day,
-        1:clear_day,
-        2:partly_cloudy_day,
-        3:overcast,
-        45:fog,
-        48:fog,
-        51:drizzle,
-        53:drizzle,
-        55:drizzle,
-        56:drizzle,
-        57:drizzle,
-        61:raindrop,
-        63:rain,
-        65:rain,
-        66:sleet,
-        67:sleet,
-        71:snowflake,
-        73:snow,
-        75:snow,
-        77:snow,
-        80:rain,
-        81:rain,
-        82:rain,
-        85:rain,
-        86:rain,
-        95:thunderstorms,
-        96:thunderstorms,
-        99:thunderstorms
-      }
+
     
     useEffect(()=>{
-        if(currentWeatherData!=undefined){
-            // console.log(currentWeatherData.weatherCode)
-            setCurrentWeatherSvg(WMOCodeToSVG[currentWeatherData.weatherCode])
+        if(currentWeatherData==undefined){
+        }else{
+            console.log(currentWeatherData.weatherCode)
+            var convertedCode = currentWeatherData.isday==1 ? Number(currentWeatherData.weatherCode) : Number(currentWeatherData.weatherCode) + 100
+            setCurrentWeatherSvg(WMOCodeToSVG[convertedCode])
         }
         
     },[currentWeatherData])

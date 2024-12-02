@@ -174,9 +174,10 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
 
             const currentTimeString = formatLocalTime(data.current.time);
             const next7DaysDate = getNextSevenDays(data.current.time)
+            var next7DaysNames = []
             next7DaysDate.forEach(i=>{
                 var y = new Date(i)
-                console.log(y.toLocaleDateString('en-US', { weekday: 'long' }))
+                next7DaysNames.push(y.toLocaleDateString('en-US', { weekday: 'long' }))
             })
             const indexesOf7Days = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]}
             var temperatureOf7Days = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]}
@@ -210,7 +211,8 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
                 );
                 dominantCode7Days.push(dominantCode)
             }
-            console.log(dominantCode7Days)
+            // console.log(dominantCode7Days)
+            _7daysForecast$({high_low:highestLowest7Days, weather_code:dominantCode7Days, day_name:next7DaysNames})
             
             
             var timeArray = data.minutely_15.time;
@@ -269,8 +271,6 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
                     
                 hourlyForecastData$([time, temp])
 
-                
-                _7daysForecast$([{lowestTemp:'', highestTemp:'', image:''}])
                   
             }
 

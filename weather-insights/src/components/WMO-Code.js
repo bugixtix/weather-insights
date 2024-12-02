@@ -1,4 +1,76 @@
+import clear_day from '../weather-svgs/clear-day.svg'
+import clear_night from '../weather-svgs/clear-night.svg'
+import partly_cloudy_day from '../weather-svgs/partly-cloudy-day.svg'
+import partly_cloudy_night from '../weather-svgs/partly-cloudy-night.svg'
+import cloudy from '../weather-svgs/cloudy.svg'
+import overcast from '../weather-svgs/overcast.svg'
+import fog from '../weather-svgs/fog.svg'
+import drizzle from '../weather-svgs/drizzle.svg'
+import raindrop from '../weather-svgs/raindrop.svg'
+import rain from '../weather-svgs/rain.svg'
+import sleet from '../weather-svgs/sleet.svg'
+import snowflake from '../weather-svgs/snowflake.svg'
+import snow from '../weather-svgs/snow.svg'
+import thunderstorms from '../weather-svgs/thunderstorms.svg'
 
+export var WMOCodeToSVG = {
+  0:clear_day,
+  1:clear_day,
+  2:partly_cloudy_day,
+  3:cloudy,
+  45:fog,
+  48:fog,
+  51:drizzle,
+  53:drizzle,
+  55:drizzle,
+  56:drizzle,
+  57:drizzle,
+  61:raindrop,
+  63:rain,
+  65:rain,
+  66:sleet,
+  67:sleet,
+  71:snowflake,
+  73:snow,
+  75:snow,
+  77:snow,
+  80:rain,
+  81:rain,
+  82:rain,
+  85:rain,
+  86:rain,
+  95:thunderstorms,
+  96:thunderstorms,
+  99:thunderstorms,
+  100:clear_night,
+  101:clear_night,
+  102:partly_cloudy_night,
+  103:overcast,
+  145:fog,
+  148:fog,
+  151:drizzle,
+  153:drizzle,
+  155:drizzle,
+  156:drizzle,
+  157:drizzle,
+  161:raindrop,
+  163:rain,
+  165:rain,
+  166:sleet,
+  167:sleet,
+  171:snowflake,
+  173:snow,
+  175:snow,
+  177:snow,
+  180:rain,
+  181:rain,
+  182:rain,
+  185:rain,
+  186:rain,
+  195:thunderstorms,
+  196:thunderstorms,
+  199:thunderstorms,
+}
 export var wmoCodeInterpretation = {
 
     0: "Clear sky",
@@ -136,7 +208,7 @@ export var WMOCodeText = {
   99:"Thunderstorm With Heavy Hail",
 
 }
-export var WMOCodeToSVG = {
+export var WMOCodeToSVG_ = {
   0:"clear_day",
   1:"clear_day",
   2:"partly_cloudy_day",

@@ -20,7 +20,7 @@ import sleet from '../weather-svgs/sleet.svg'
 import snowflake from '../weather-svgs/snowflake.svg'
 import snow from '../weather-svgs/snow.svg'
 import thunderstorms from '../weather-svgs/thunderstorms.svg'
-import { WMOCodeToSVG } from "./WMO-Code"
+import { WMOCodeToSVG, WMOCodeDetailed } from "./WMO-Code"
 
 
 import { HourlyWeatherChart } from "./HourlyWeatherChart";
@@ -58,7 +58,7 @@ export default function CurrentWeather({screenWidth, place, currentWeatherData, 
         <div className="CurrentWeather">
 
             <div className="CurrentWeather__box">
-
+            <div className="CurrentWeather__boxCon">
                 <div className="CurrentWeather__dateNlabel">
                     <p className="CurrentWeather__date">
                         {screenWidth > 1000 ? currentWeatherText : ''}
@@ -95,10 +95,11 @@ export default function CurrentWeather({screenWidth, place, currentWeatherData, 
                 </div>
 
                 <div className="CurrentWeather__compDescCon">
-                    <p className="CurrentWeather__compDesc"> {comprehensiveDescription}</p>
+                    <p className="CurrentWeather__compDesc"> {currentWeatherData.weatherCode >= 0 ? WMOCodeDetailed[currentWeatherData.weatherCode] : "Weather Description is Not Available"}
+                    </p>
                 </div>
                 
-
+                </div>
             </div>
 
             

@@ -62,7 +62,7 @@
         flex-direction: row !important;
         align-items: center !important; justify-content: center !important;
         min-height: 8rem !important;
-        padding: 1rem !important;
+        padding: 8px 0px  !important;
         gap: 0rem !important;
         flex-wrap: wrap !important;
     }   
@@ -158,8 +158,8 @@
         flex-wrap: wrap !important;
     }   
     .CurrentWeather__compDescCon, .CurrentWeather__comDesc{
-        width: 100% !important;
-        text-align: center !important;
+        width: 68% !important;
+        text-align: start !important;
     }
     /*  */
     .CurrentWeather__dateNlabel, .CurrentWeather__iconTextTempCon{
@@ -180,9 +180,12 @@
         width: 6rem !important;
         padding: 0.4rem 0rem !important ;
     }
+    .CurrentWeather__compDescCon{
+        width: 100% !important;
+    }
     .CurrentWeather__compDesc{
         width: 100% !important;
-        text-align: center !important;
+        text-align: start !important;
     }
     .WeatherForecast__label{
         font-size: var(--phone-medium-font) !important;
@@ -236,16 +239,25 @@
         font-weight: bold !important;
     }
     .CurrentWeather__box{
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0px 0px 4px 20px ;
+    }
+    .CurrentWeather__boxCon{
         flex-direction: row !important;
-        align-items: center !important; justify-content: center !important;
-        min-height: 10rem !important;
-        padding: 0rem 0rem 1rem 0rem !important;
-        gap: 0rem !important;
-        flex-wrap: wrap !important;
+        align-items: center !important; justify-content: flex-start !important;
+        /* min-height: 10rem !important; */
+        padding: 0px 0px 8px 0px !important;
+        gap: 1rem !important;
+        /* flex-wrap: wrap !important; */
+        width: 80% !important;
     }   
-    .CurrentWeather__compDescCon, .CurrentWeather__comDesc{
-        width: 100% !important;
-        text-align: center !important;
+    .CurrentWeather__compDescCon{
+        text-align: start !important;
+    }
+    .CurrentWeather__comDesc{
+        text-align: start !important;
     }
     /*  */
     .CurrentWeather__dateNlabel, .CurrentWeather__iconTextTempCon{
@@ -260,10 +272,6 @@
     }
     .CurrentWeather__temperature, .CurrentWeather__description{
         /* font-size: var(--tablet-medium-font) !important; */
-    }
-    .CurrentWeather__compDesc{
-        width: 100% !important;
-        text-align: center !important;
     }
     .CurrentWeather{flex-direction:column !important;}
     .OneDayForecast__box{width: 5rem !important;}

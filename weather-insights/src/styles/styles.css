@@ -148,10 +148,10 @@
     cursor: pointer;
     height: 100%;
     width: 100%;
-    font-size: var(--xSmall-font);
+    font-size: var(--phone-medium-font);
     outline: none;
     transition: all ease 600ms;
-    padding: 0.4rem 2rem;
+    padding: 0.5rem 1rem 0.4rem 1rem;
     border-radius: 1rem;
     /* margin: 0rem 0.5rem 0rem 0rem; */
     background-color: var(--light-color);
@@ -169,7 +169,7 @@
 }
 .SearchBar__inputField::placeholder{
     color: var(--dark-color);
-    font-size: var(--xSmall-font);
+    font-size: var(--tablet-medium-font);
 }
 .SearchBar__inputField:focus, .SearchBar__inputField:hover{
     border: 2px solid var(--primary-color);
@@ -223,7 +223,7 @@
     background-position: left;
 }
 .SearchBar__liCity{
-    font-size: var(--xSmall-font);
+    font-size: var(--phone-large-font);
     color: var(--primary-color);
     /* font-weight: bold; */
 }
@@ -232,11 +232,11 @@
     padding:0rem 0.4rem 0rem 0rem;
 }
 .SearchBar__state{
-    font-size: var(--xSmall-font);
+    font-size: var(--phone-medium-font);
     color: var(--liDark-color);
 }
 .SearchBar__country{
-    font-size: var(--xSmall-font);
+    font-size: var(--phone-medium-font);
     color: var(--liDark-color);
 }
 
@@ -248,7 +248,7 @@
     cursor: pointer;
     border-radius: 1rem;
     background-color: var(--light-color);
-    font-size: var(--xSmall-font);
+    font-size: var(--phone-medium-font);
     font-weight: 200;
     color: var(--dark-color);
     transition:all ease 1s;
@@ -270,12 +270,12 @@
     gap:0.5rem;
 }
 .SearchBar__locationButton{
-    padding: 0.5rem 1rem 0.3rem 1rem;
+    padding: 0.5rem 1rem 0.4rem 1rem;
     margin: 0rem;
     cursor: pointer;
     border-radius: 1rem;
     background-color: white;
-    font-size: var(--xSmall-font);
+    font-size: var(--tablet-medium-font);
     font-weight: 400;
     color: var(--dark-color);
     border: 0.1rem solid var(--xLight-color);
@@ -287,7 +287,6 @@
     gap:0.2rem;
 }.SearchBar__locationButton:hover, .SearchBar__locationButton:focus{
     border: 2px solid var(--primary-color);
-    /* background-color: var(--primary-color); */
     background-position: right;
     /* transform: scale(1.1); */
     color: var(--light-color);
@@ -314,14 +313,13 @@
     box-shadow: 0rem 0.2rem 0.4rem rgba(0,0,0,0.1);
     border-radius: 0.4rem;
     background-color: var(--light-color);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;
 }
 
 /*  */
 .CurrentWeather__box{
-    /* width: 10rem; */
-    /* display: flex; flex-direction: column;justify-content: center; align-items:flex-start; flex-wrap:wrap;
-    transition:all ease 600ms; */
+    display: flex; flex-direction: column;justify-content: center; align-items:flex-start; flex-wrap:wrap;
+    transition:all ease 600ms;
     min-width: 35%;
     /* gap: 0.3rem; */
     /* padding: 0.4rem 1rem; */
@@ -429,6 +427,9 @@
     padding: 0.5rem 0rem ;
     background-color: var(--transparent);
     position:relative;
+}
+.HourlyWeatherChart > p {
+    font-size: var(--tablet-medium-font);
 }
 .HourlyWeather__torightButton{
     background-color:var(--transparent);
@@ -544,18 +545,19 @@
 
 }
 .WeatherForecast__container1{
-    border-left: 0.3rem solid var(--xLight-color);
+    border-left: 0.3rem solid var(--primary-color);
     margin: 0rem 0.4rem 0.4rem 0.4rem;
     padding: 0rem 0.2rem;
 }
 .WeatherForecast__label{
     position: relative;
     padding: 0.2rem 0.2rem;
-    /* font-size: var(--xSmall-font); */
+    font-size: var(--tablet-medium-font);
     font-weight: 500;
-    background:linear-gradient(100deg, blue, red, blue, red, blue,red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
+    /* background:linear-gradient(100deg, blue, red, blue, red, blue,red); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
     /* font-size: 5rem; */
 }
 .WeatherForecast__label::before{

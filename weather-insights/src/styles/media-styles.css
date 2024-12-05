@@ -29,7 +29,7 @@
         justify-content: center; align-items: center;
     }
     .SearchBar__inputField, .SearchBar__inputField::placeholder{
-        font-size: var(--phone-small-font) !important;
+        font-size: var(--phone-medium-font) !important;
         /* font-weight: bold !important; */
     }
     .SearchBar__inputField{
@@ -46,16 +46,16 @@
     }
     .SearchBar__locationButton, .SearchBar__searchButton{
         width: 100% !important; 
-        font-size: var(--phone-small-font) !important;
+        font-size: var(--phone-medium-font) !important;
         /* font-weight: bold !important; */
     }
     .CurrentWeather{flex-direction:column !important;}
     .CurrentWeather__label{
-        font-size: var(--phone-xLarge-font) !important;
+        font-size: var(--phone-large-font) !important;
         font-weight: bold !important;
     }
     .CurrentWeather__description, .CurrentWeather__temperature{
-        /* font-size: var(--phone-large-font) !important; */
+        /* font-size: var(--phone-medium-font) !important; */
         font-weight: bold !important;
     }
     .CurrentWeather__box{
@@ -81,6 +81,9 @@
         font-size: var(--phone-small-font) !important;
         font-weight: bold !important;
     }
+    .CurrentWeather__descText{
+        font-size: var(--phone-medium-font) !important;
+    }
     .WeatherForecast__container2{
         overflow-x: scroll !important;
     }
@@ -92,14 +95,17 @@
     .HourlyWeatherChart{
         min-height: 12rem !important;
     }
+    .HourlyWeatherChart > p{
+        font-size: var(--tablet-medium-font);
+    }
     .HourlyWeather{
         display: flex !important;
     }
     .SearchBar__suggestionsUl{
-        top: 6.5rem !important;
+        top: 2rem !important;
     }
     .SearchBar__liCity, .SearchBar__state, .SearchBar__country{
-        font-size: var(--phone-small-font) !important;
+        font-size: var(--phone-medium-font) !important;
     }
     .CurrentWeather__dateNlabel{
         width: 100% !important;
@@ -110,6 +116,7 @@
     .CurrentWeather__compDesc{
         padding: 0rem !important;
         text-align: start;
+        font-size: var(--phone-medium-font) !important;
     }
 }
 
@@ -153,16 +160,35 @@
         flex-direction: row !important;
         align-items: center !important; justify-content: center !important;
         min-height: 8rem !important;
-        padding: 1rem !important;
+        padding: 0rem !important;
         gap: 0rem !important;
         flex-wrap: wrap !important;
     }   
-    .CurrentWeather__compDescCon, .CurrentWeather__comDesc{
-        width: 68% !important;
+    .CurrentWeather__boxCon{
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-evenly !important;
+        /* gap: 1rem; */
+        flex-wrap: nowrap !important;
+    }
+    .CurrentWeather__compDescCon{
+        width: 200px !important;
         text-align: start !important;
+        /* border: 1px solid black; */
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        color: white;
+    }
+    .CurrentWeather__compDesc{
+        font-size: var(--tablet-small-font)!important;
     }
     /*  */
-    .CurrentWeather__dateNlabel, .CurrentWeather__iconTextTempCon{
+     .CurrentWeather__iconTextTempCon{
+        max-width: 200px !important;
+        width: 200px !important;
+    }
+    .CurrentWeather__dateNlabel{
+        max-width: 100px !important;
         width: auto !important;
     }
     .CurrentWeather__dateNlabel{
@@ -176,29 +202,38 @@
         /* font-size: var(--tablet-medium-font) !important; */
         font-weight: bold !important;
     }
+    .CurrentWeather__descText{
+        font-size: var(--phone-medium-font) !important;
+    }
     .CurrentWeather__weatherIconImg{
-        width: 6rem !important;
+        width: 5rem !important;
         padding: 0.4rem 0rem !important ;
     }
-    .CurrentWeather__compDescCon{
-        width: 100% !important;
+    .CurrentWeather__weatherIcon{
+        width: auto !important;
     }
-    .CurrentWeather__compDesc{
+    /* .CurrentWeather__compDescCon{
+        width: 100% !important;
+    } */
+    /* .CurrentWeather__compDesc{
         width: 100% !important;
         text-align: start !important;
-    }
+    } */
     .WeatherForecast__label{
         font-size: var(--phone-medium-font) !important;
     }
     .WeatherForecast__container2{
         overflow-x: scroll !important;
     }
+    .HourlyWeatherChart > p {
+        font-size: var(--tablet-medium-font);
+    }
     .OneDayForecast__day, .OneDayForecast__highestTemperature, .OneDayForecast__lowestTemperature{
         font-size: var(--tablet-small-font) !important;
         font-weight: bold !important;
     }
     .SearchBar__suggestionsUl{
-        top: 3.6rem !important;
+        top: 1.8rem !important;
     }
     .SearchBar__liCity, .SearchBar__state, .SearchBar__country{
         font-size: var(--tablet-small-font) !important;
@@ -240,21 +275,28 @@
     }
     .CurrentWeather__box{
         display: flex;
-        justify-content: center !important;
+        justify-content: flex-start !important;
         align-items: center !important;
-        padding: 0px 0px 4px 20px ;
+        /* padding: 0px 0px 4px 20px ; */
     }
     .CurrentWeather__boxCon{
         flex-direction: row !important;
-        align-items: center !important; justify-content: flex-start !important;
+        align-items: center !important; justify-content: space-evenly !important;
         /* min-height: 10rem !important; */
-        padding: 0px 0px 8px 0px !important;
+        padding: 0px 0px 0px 0px !important;
         gap: 1rem !important;
         /* flex-wrap: wrap !important; */
-        width: 80% !important;
+        /* width: 80% !important; */
     }   
     .CurrentWeather__compDescCon{
         text-align: start !important;
+        width: 200px !important;
+        /* border: 1px solid black; */
+        border-radius: 4px;
+        padding: 4px;
+        /* margin-left: 2rem; */
+        background-color: var(--primary-color);
+        color: white;
     }
     .CurrentWeather__comDesc{
         text-align: start !important;
@@ -265,6 +307,9 @@
     }
     .CurrentWeather__dateNlabel{
         flex-direction: column-reverse !important;
+    }
+    .CurrentWeather__weatherIcon {
+        width: 6rem !important;
     }
     .CurrentWeather__label{
         font-size: var(--tablet-large-font) !important;
@@ -287,7 +332,7 @@
         font-weight: bold !important;
     }
     .SearchBar__suggestionsUl{
-        top: 4rem !important;
+        top: 1.8rem !important;
     }
     .SearchBar__liCity, .SearchBar__state, .SearchBar__country{
         font-size: var(--tablet-small-font) !important;
@@ -304,5 +349,9 @@
     .SearchBar__currentLocationSVG{
         position: relative !important; 
         right: unset !important;
+    }
+
+    .CurrentWeather__box{
+        width: 10rem;
     }
 }

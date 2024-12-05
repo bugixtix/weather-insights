@@ -391,7 +391,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
 
             <div className="SearchBar__container1" id="adress-container">
 
-                <input type="text" placeholder="City" className="SearchBar__inputField" id="address-input" value={query} onChange={handleInputChange}/>
+                <input type="text" placeholder="City or Town" className="SearchBar__inputField" id="address-input" value={query} onChange={handleInputChange}/>
                 {/* <   img src={locationSVG} className="SearchBar__locationSVG"/> */}
 
                 <ul className={`SearchBar__suggestionsUl ${showUl?'showUl':''}`}>
@@ -411,7 +411,7 @@ export default function SearchBar({screenWidth, isLocation, isLocation$, showAle
             </div>
 
             <div className="SearchBar__container2">
-                <button className="SearchBar__locationButton"  onClick={locationButton__click}> Use My City </button>
+                <button className="SearchBar__locationButton"  onClick={locationButton__click}> My City </button>
             </div>
         </div>
     )

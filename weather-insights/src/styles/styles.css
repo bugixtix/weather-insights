@@ -616,8 +616,6 @@
 }
 .OneDayForecast__temperatureContainer{
     display: flex; flex-direction: row ; justify-content: center ; align-items: center ;
-    /* position: absolute;
-    bottom: 0.2rem; */
     font-size: var(--xSmall-font);
 }
 .OneDayForecast__temperatureIcon{

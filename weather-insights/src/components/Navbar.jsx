@@ -3,7 +3,6 @@ import '../styles/styles.css'
 import {Nav, Nav__container1, Nav__text} from '../styles/styles.js'
 export default function Navbar({screenWidth, pageStarts}){
 
-    // var [state, state$] = useState(false)
     useEffect(()=>{
     },[])
     return(

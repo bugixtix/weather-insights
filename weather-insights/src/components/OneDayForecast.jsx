@@ -6,7 +6,7 @@ import clear_day from '../weather-svgs/clear-day.svg'
 import { OneDayForecast as OneDayForecastStyle, OneDayForecast__container1, OneDayForecast__box, OneDayForecast__day, OneDayForecast__date, OneDayForecast__container2, OneDayForecast__temperatureIcon, OneDayForecast__temperature, OneDayForecast__container3, OneDayForecast__temperatureDescription1, OneDayForecast__temperatureDescription2, OneDayForecast__container4, OneDayForecast__humidityIconImg, OneDayForecast__humidityPercentage } from "../styles/styles";
 
 import { WMOCodeToSVG } from "./WMO-Code";
-// import sunnySVG from '../weather-svgs/a_1_sunny.svg'
+
 
 export function OneDayForecast ({screenWidth, index, day, _7daysForecast}){
 

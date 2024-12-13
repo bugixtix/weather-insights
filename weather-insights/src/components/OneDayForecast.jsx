@@ -16,7 +16,6 @@ export function OneDayForecast ({screenWidth, index, day, _7daysForecast}){
         <div className="OneDayForecast">
             <div className="OneDayForecast__box" >
                     <div className="OneDayForecast__day">{day}</div>
-                    {/* <div></div> */}
                     <img src={WMOCodeToSVG[_7daysForecast.weather_code[index.toString()]]} className="OneDayForecast__img"/>
                     <div className="OneDayForecast__temperatureContainer">
                         <p className="OneDayForecast__lowestTemperature"> {_7daysForecast.high_low[index.toString()][0]}°</p>

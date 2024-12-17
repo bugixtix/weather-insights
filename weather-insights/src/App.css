@@ -19,8 +19,6 @@ body{
   align-items: center;
   align-content: space-between; 
   justify-content: space-between;
-  
-  /* padding: 0 20px 20px 20px; */
   min-height: 100vh !important;
   min-width: 100vw !important;
   animation: fade 800ms 500ms linear forwards;
